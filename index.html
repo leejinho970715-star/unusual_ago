@@ -3,247 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TYPE:16 — WEAR YOUR TYPE | 2026 FALL COLLECTION</title>
-    <meta name="description" content="성격을 입다. 16개의 Personality, 16개의 Style. Y2K 스트리트 패션 & MBTI 무드 큐레이션 스튜디오 TYPE:16">
+    <title>TYPE:16 × AD VILLAINS | INSIDE MY TYPE 2026 FALL</title>
+    <meta name="description" content="WEAR YOUR TYPE. AD VILLAINS 스트리트 엣지와 16 MBTI 퍼스널리티 패션 무드의 만남. TYPE:16 공식 컬렉션">
 
-    <!-- Google Fonts: Y2K Cyber & Modern Typography -->
+    <!-- Google Fonts: AD VILLAINS Edgy & Bold Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- GSAP (GreenSock Animation Platform) & ScrollTrigger -->
+    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-y2k">
+<body class="theme-advillains">
 
-    <!-- Top Marquee Ticker -->
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">⚡ TYPE:16 — WEAR YOUR TYPE ⚡ 2026 FALL — INSIDE MY TYPE ⚡ 16 PERSONALITIES, 16 DIFFERENT STYLES ⚡ FREE WORLDWIDE SHIPPING ON ORDERS OVER ₩100,000 ⚡</div>
-            <div class="ticker-item">⚡ TYPE:16 — WEAR YOUR TYPE ⚡ 2026 FALL — INSIDE MY TYPE ⚡ 16 PERSONALITIES, 16 DIFFERENT STYLES ⚡ FREE WORLDWIDE SHIPPING ON ORDERS OVER ₩100,000 ⚡</div>
+    <!-- AD VILLAINS Warning Ticker Banner -->
+    <div class="adv-ticker-wrap">
+        <div class="adv-ticker">
+            <div class="ticker-item">★ AD VILLAINS x TYPE:16 // WEAR YOUR TYPE ★ BE ORIGINAL ★ BREAKING THE MOLD ★ 2026 FALL INSIDE MY TYPE ★ FREE SHIPPING OVER ₩100,000 ★</div>
+            <div class="ticker-item">★ AD VILLAINS x TYPE:16 // WEAR YOUR TYPE ★ BE ORIGINAL ★ BREAKING THE MOLD ★ 2026 FALL INSIDE MY TYPE ★ FREE SHIPPING OVER ₩100,000 ★</div>
         </div>
     </div>
 
     <!-- Navigation Header -->
-    <header class="navbar" id="navbar">
+    <header class="adv-navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <span class="logo-y2k">TYPE:<span class="pink">16</span></span>
-                <span class="logo-badge">FALL '26</span>
+            <a href="#" class="adv-brand">
+                <span class="logo-adv">TYPE:<span class="orange">16</span></span>
+                <span class="logo-sub">× AD VILLAINS</span>
             </a>
 
-            <nav class="nav-menu">
+            <nav class="adv-nav-menu">
                 <a href="#shop" class="nav-link">SHOP</a>
                 <a href="#types-collection" class="nav-link">16 TYPES</a>
                 <a href="#hero" class="nav-link">COLLECTION</a>
-                <a href="#type-test" class="nav-link badge-y2k">TYPE TEST</a>
+                <a href="#type-test" class="nav-link badge-orange">TYPE TEST</a>
                 <a href="#lookbook" class="nav-link">LOOKBOOK</a>
                 <a href="#community" class="nav-link">COMMUNITY</a>
             </nav>
 
-            <div class="nav-actions">
-                <button class="icon-btn" id="search-btn" title="Search">
+            <div class="adv-nav-actions">
+                <button class="adv-icon-btn" id="search-btn" title="Search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-                <button class="icon-btn" id="wishlist-btn" title="Wishlist Capsule" onclick="toggleDrawer('wishlist')">
+                <button class="adv-icon-btn" id="wishlist-btn" title="Wishlist Capsule" onclick="toggleDrawer('wishlist')">
                     <i class="fa-solid fa-heart"></i>
                     <span id="wish-count" class="badge-count">0</span>
                 </button>
-                <button class="icon-btn cart-btn" id="cart-btn" title="Cart" onclick="toggleDrawer('cart')">
+                <button class="adv-icon-btn cart-btn" id="cart-btn" title="Cart" onclick="toggleDrawer('cart')">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span id="cart-count" class="badge-count">0</span>
-                </button>
-                <button class="theme-toggle-btn" id="theme-toggle" title="Y2K Mode Switch">
-                    <i class="fa-solid fa-bolt"></i> Y2K
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Floating AD VILLAINS Contact / Wanted Badge -->
+    <div class="contact-floating" onclick="openTypeArchive('INTJ')">
+        <div class="badge-inner">
+            <i class="fa-solid fa-skull"></i>
+            <span>WANTED TYPE</span>
+        </div>
+    </div>
+
     <main>
-        <!-- 01. HERO SECTION -->
-        <section id="hero" class="hero-section">
-            <div class="hero-bg-container">
-                <img src="assets/hero_campaign.jpg" alt="TYPE:16 Y2K Campaign" class="hero-bg-img" id="hero-img">
-                <div class="hero-overlay"></div>
+        <!-- 01. HERO SECTION (AD VILLAINS Urban Style) -->
+        <section id="hero" class="adv-hero-section">
+            <div class="hero-bg-media">
+                <img src="assets/hero_campaign.jpg" alt="AD VILLAINS x TYPE:16 Campaign" class="hero-bg-img">
+                <div class="hero-dark-overlay"></div>
             </div>
 
-            <!-- Y2K Stickers Floating -->
-            <div class="y2k-sticker sticker-1 gsap-sticker">WEAR YOUR TYPE</div>
-            <div class="y2k-sticker sticker-2 gsap-sticker">HOT 2026 DROP</div>
-            <div class="y2k-sticker sticker-3 gsap-sticker">★ 16 STYLES ★</div>
+            <!-- Graffiti Sticker Overlays -->
+            <div class="adv-sticker sticker-graffiti-1">BE ORIGINAL</div>
+            <div class="adv-sticker sticker-graffiti-2">BREAKING THE MOLD</div>
+            <div class="adv-sticker sticker-graffiti-3">TYPE:16 ARCHIVE</div>
 
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fa-solid fa-fire"></i> 2026 FALL — INSIDE MY TYPE
-                </div>
-                <h1 class="hero-title gsap-hero-text">
-                    <span class="text-stroke">TYPE:16</span> <br>
-                    WEAR YOUR TYPE
+            <div class="hero-content-wrap">
+                <span class="hero-tag-orange"><i class="fa-solid fa-bolt"></i> 2026 FALL — INSIDE MY TYPE</span>
+                <h1 class="hero-title-bold">
+                    WEAR YOUR <span class="gradient-orange">TYPE</span>
                 </h1>
-                <p class="hero-subtitle gsap-hero-sub">
-                    성격을 입다. 16개의 Personality, 16개의 Style.<br>
-                    당신의 MBTI에 맞춘 시그니처 Y2K 패션 스트리트 컬렉션.
+                <p class="hero-desc">
+                    16 PERSONALITIES, 16 DIFFERENT STREET STYLES.<br>
+                    AD VILLAINS 크리에이티브 감성과 MBTI 퍼스널리티 패션의 무제한 믹스매치.
                 </p>
-                <div class="hero-cta gsap-hero-cta">
-                    <a href="#type-test" class="btn btn-y2k-pink">
+
+                <div class="hero-actions">
+                    <a href="#type-test" class="btn btn-adv-orange">
                         FIND MY TYPE <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="#types-collection" class="btn btn-y2k-outline">
+                    <a href="#types-collection" class="btn btn-adv-outline">
                         EXPLORE 16 TYPES
                     </a>
                 </div>
             </div>
+
+            <div class="scroll-down-indicator">
+                <span>SCROLL DOWN</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </section>
 
-        <!-- 02. WHAT'S YOUR TYPE? (Interactive Quick Quiz) -->
-        <section id="type-test" class="section-container quiz-section">
+        <!-- 02. WHAT'S YOUR TYPE? (Fashion Type Test) -->
+        <section id="type-test" class="section-container">
             <div class="section-title-wrap text-center">
-                <span class="y2k-tag">02. FASHION TYPE TEST</span>
-                <h2 class="section-title">WHAT'S YOUR TYPE?</h2>
-                <p class="section-desc">4가지 선택으로 완성되는 당신만의 Y2K 시그니처 핏 큐레이션</p>
+                <span class="adv-tag">02. FASHION TYPE TEST</span>
+                <h2 class="adv-section-title">WHAT'S YOUR TYPE?</h2>
+                <p class="adv-section-desc">4가지 스위치로 완성되는 당신만의 AD VILLAINS 시그니처 핏 큐레이션</p>
             </div>
 
-            <div class="quiz-card-box">
+            <div class="quiz-box-adv">
                 <div class="quiz-sliders">
-                    <!-- Switch 1: E vs I -->
                     <div class="quiz-row">
-                        <span class="quiz-label label-e">E (Extraversion)</span>
+                        <span class="quiz-label">E (Extraversion)</span>
                         <div class="quiz-toggle" onclick="toggleQuizTrait(0)">
                             <div class="quiz-handle" id="handle-0"></div>
                         </div>
-                        <span class="quiz-label label-i">I (Introversion)</span>
+                        <span class="quiz-label">I (Introversion)</span>
                     </div>
-                    <!-- Switch 2: N vs S -->
                     <div class="quiz-row">
-                        <span class="quiz-label label-n">N (Intuition)</span>
+                        <span class="quiz-label">N (Intuition)</span>
                         <div class="quiz-toggle" onclick="toggleQuizTrait(1)">
                             <div class="quiz-handle" id="handle-1"></div>
                         </div>
-                        <span class="quiz-label label-s">S (Sensing)</span>
+                        <span class="quiz-label">S (Sensing)</span>
                     </div>
-                    <!-- Switch 3: F vs T -->
                     <div class="quiz-row">
-                        <span class="quiz-label label-f">F (Feeling)</span>
+                        <span class="quiz-label">F (Feeling)</span>
                         <div class="quiz-toggle" onclick="toggleQuizTrait(2)">
                             <div class="quiz-handle" id="handle-2"></div>
                         </div>
-                        <span class="quiz-label label-t">T (Thinking)</span>
+                        <span class="quiz-label">T (Thinking)</span>
                     </div>
-                    <!-- Switch 4: P vs J -->
                     <div class="quiz-row">
-                        <span class="quiz-label label-p">P (Perceiving)</span>
+                        <span class="quiz-label">P (Perceiving)</span>
                         <div class="quiz-toggle" onclick="toggleQuizTrait(3)">
                             <div class="quiz-handle" id="handle-3"></div>
                         </div>
-                        <span class="quiz-label label-j">J (Judging)</span>
+                        <span class="quiz-label">J (Judging)</span>
                     </div>
                 </div>
 
-                <div class="quiz-result-card">
-                    <span class="result-sub">YOUR MATCHED PERSONALITY</span>
-                    <h3 id="quiz-result-code" class="result-mbti">INFP</h3>
-                    <div id="quiz-result-title" class="result-title">DREAMY VINTAGE</div>
-                    <p id="quiz-result-desc" class="result-text">감성적인 크로셰, 포근한 니트 레이어드와 로맨틱 파스텔 무드</p>
-                    <button id="quiz-explore-btn" class="btn btn-y2k-cyan" onclick="openTypeArchive(currentQuizMbti)">
+                <div class="quiz-result-paper">
+                    <div class="paper-header">CONFIDENTIAL TYPE FILE</div>
+                    <h3 id="quiz-result-code" class="result-mbti-code">INFP</h3>
+                    <div id="quiz-result-title" class="result-mbti-title">DREAMY VINTAGE</div>
+                    
+                    <!-- Result Fashion Image -->
+                    <div class="result-img-box">
+                        <img id="quiz-result-img" src="assets/mbti_diplomat.jpg" alt="MBTI Fashion Example" class="result-img">
+                    </div>
+
+                    <p id="quiz-result-desc" class="result-text">감성적인 크로셰 니트, 파스텔 레이어드와 로맨틱 빈티지 무드</p>
+                    <button id="quiz-explore-btn" class="btn btn-adv-orange btn-full" onclick="openTypeArchive(currentQuizMbti)">
                         Explore INFP Style Archive <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- 03. 16 TYPES COLLECTION GRID -->
+        <!-- 03. 16 TYPES COLLECTION (WITH FASHION EXAMPLE IMAGES) -->
         <section id="types-collection" class="section-container">
             <div class="section-title-wrap">
-                <span class="y2k-tag">03. ARCHIVE LIBRARY</span>
-                <h2 class="section-title">16 TYPES COLLECTION</h2>
-                <p class="section-desc">MBTI = 스타일 큐레이션. 16가지 고유 캐릭터 핏과 톤앤매치를 클릭하여 탐색하세요.</p>
+                <span class="adv-tag">03. ARCHIVE LIBRARY</span>
+                <h2 class="adv-section-title">16 TYPES COLLECTION</h2>
+                <p class="adv-section-desc">16가지 MBTI 성향별 착장 패션 예시 이미지와 스타일 큐레이션</p>
             </div>
 
-            <!-- Group Filter Tabs -->
             <div class="group-filter-bar">
-                <button class="filter-btn active" data-group="all">ALL TYPES</button>
+                <button class="filter-btn active" data-group="all">ALL TYPES (16)</button>
                 <button class="filter-btn" data-group="analysts">ANALYSTS (NT)</button>
                 <button class="filter-btn" data-group="diplomats">DIPLOMATS (NF)</button>
                 <button class="filter-btn" data-group="sentinels">SENTINELS (SJ)</button>
                 <button class="filter-btn" data-group="explorers">EXPLORERS (SP)</button>
             </div>
 
+            <!-- 16 Types Cards Grid with Images -->
             <div id="types-grid" class="types-grid">
-                <!-- Rendered dynamically via JavaScript -->
+                <!-- Dynamically rendered with MBTI Fashion Example Images -->
             </div>
         </section>
 
-        <!-- 04. TYPE OF THE WEEK SPOTLIGHT -->
-        <section id="weekly-spotlight" class="section-container weekly-section">
-            <div class="weekly-banner">
+        <!-- 04. TYPE OF THE WEEK -->
+        <section id="weekly-spotlight" class="section-container">
+            <div class="weekly-banner-adv">
                 <div class="weekly-info">
-                    <span class="y2k-badge-hot">WEEKLY SPECIAL</span>
-                    <h2 class="weekly-title">TYPE OF THE WEEK</h2>
-                    <h3 class="weekly-mbti">ENFP — THE SPARK</h3>
-                    <div class="weekly-keywords">
-                        <span class="kw-tag">#LOUD</span>
-                        <span class="kw-tag">#COLORFUL</span>
-                        <span class="kw-tag">#FREE_SPIRIT</span>
+                    <span class="badge-spotlight">WEEKLY SPECIAL</span>
+                    <h2 class="weekly-sub">TYPE OF THE WEEK</h2>
+                    <h3 class="weekly-title-code">ENFP — THE SPARK</h3>
+                    <div class="weekly-tags">
+                        <span>#LOUD</span>
+                        <span>#COLORFUL</span>
+                        <span>#FREE_SPIRIT</span>
                     </div>
-                    <p class="weekly-desc">
-                        톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드. 통통 튀는 에너지로 자유로운 스타일링을 완벽하게 소화하는 ENFP만의 큐레이션!
+                    <p class="weekly-text">
+                        톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드. 자유로운 에너지를 발산하는 ENFP만의 시그니처 룩북!
                     </p>
-                    <button class="btn btn-y2k-pink" onclick="filterShopByMbti('ENFP')">
+                    <button class="btn btn-adv-orange" onclick="filterShopByMbti('ENFP')">
                         SHOP ENFP COLLECTION <i class="fa-solid fa-bag-shopping"></i>
                     </button>
                 </div>
-                <div class="weekly-media">
-                    <img src="assets/lookbook_colorpop.jpg" alt="ENFP Lookbook" class="weekly-img">
+                <div class="weekly-img-box">
+                    <img src="assets/lookbook_colorpop.jpg" alt="ENFP Outfit" class="weekly-img">
                 </div>
             </div>
         </section>
 
         <!-- 05. TYPE MATCH (YOUR TYPE x THEIR TYPE) -->
-        <section id="type-match" class="section-container match-section">
+        <section id="type-match" class="section-container">
             <div class="section-title-wrap text-center">
-                <span class="y2k-tag">05. STYLING SYNERGY</span>
-                <h2 class="section-title">TYPE MATCH</h2>
-                <p class="section-desc">YOUR TYPE × THEIR TYPE — 커플 & 시스터 룩 스타일링 시너지 매칭</p>
+                <span class="adv-tag">05. STYLING SYNERGY</span>
+                <h2 class="adv-section-title">TYPE MATCH</h2>
+                <p class="adv-section-desc">YOUR TYPE × THEIR TYPE — 커플 & 프렌드 룩 패션 시너지</p>
             </div>
 
-            <div class="match-box">
+            <div class="match-box-adv">
                 <div class="match-selectors">
                     <div class="selector-card">
                         <label>YOUR TYPE</label>
-                        <select id="match-type-1" class="y2k-select" onchange="calculateTypeMatch()">
-                            <!-- Dynamically generated -->
-                        </select>
+                        <select id="match-type-1" class="adv-select" onchange="calculateTypeMatch()"></select>
                     </div>
-
-                    <div class="match-icon-circle"><i class="fa-solid fa-xmark"></i></div>
-
+                    <div class="match-vs-circle"><i class="fa-solid fa-xmark"></i></div>
                     <div class="selector-card">
                         <label>THEIR TYPE</label>
-                        <select id="match-type-2" class="y2k-select" onchange="calculateTypeMatch()">
-                            <!-- Dynamically generated -->
-                        </select>
+                        <select id="match-type-2" class="adv-select" onchange="calculateTypeMatch()"></select>
                     </div>
                 </div>
 
-                <div id="match-result-box" class="match-result-box">
-                    <div class="match-score-badge">
-                        SYNERGY <span id="match-score">96%</span>
-                    </div>
+                <div id="match-result-box" class="match-result-paper">
+                    <div class="match-score">SYNERGY SCORE: <span id="match-score">98%</span></div>
                     <h3 id="match-combo-title" class="combo-title">INTJ (Dark Minimal) × ENFP (Color Pop)</h3>
                     <p id="match-combo-desc" class="combo-desc">
                         시크한 INTJ의 구조적 차콜 블레이저와 ENFP의 산뜻한 네온 크롭 탑이 조화를 이루는 극과 극의 반전 매력 커플룩!
                     </p>
                     <div class="match-actions">
-                        <button class="btn btn-y2k-outline" onclick="shareMatchResult()"><i class="fa-solid fa-share-nodes"></i> SNS 공유하기</button>
-                        <button class="btn btn-y2k-cyan" onclick="openShopWithMatch()"><i class="fa-solid fa-sparkles"></i> 매칭 룩북 보러가기</button>
+                        <button class="btn btn-adv-outline" onclick="shareMatchResult()"><i class="fa-solid fa-share-nodes"></i> SNS 공유하기</button>
+                        <button class="btn btn-adv-orange" onclick="openShopWithMatch()"><i class="fa-solid fa-sparkles"></i> 매칭 룩북 보러가기</button>
                     </div>
                 </div>
             </div>
@@ -252,9 +254,9 @@
         <!-- 06. SHOP BY MOOD -->
         <section id="shop-by-mood" class="section-container">
             <div class="section-title-wrap">
-                <span class="y2k-tag">06. MOOD CURATION</span>
-                <h2 class="section-title">SHOP BY MOOD</h2>
-                <p class="section-desc">MBTI를 몰라도 괜찮아요! 오늘 당신이 원하는 패션 무드를 선택하세요.</p>
+                <span class="adv-tag">06. MOOD CURATION</span>
+                <h2 class="adv-section-title">SHOP BY MOOD</h2>
+                <p class="adv-section-desc">원하는 패션 무드를 선택하면 연관 MBTI 및 추천 상품이 연동됩니다.</p>
             </div>
 
             <div class="mood-pills">
@@ -268,32 +270,32 @@
                 <button class="mood-pill" onclick="selectMoodFilter('Y2K')">🛸 Y2K POP</button>
             </div>
 
-            <div id="mood-mbti-mapping" class="mood-mapping-badge">
+            <div class="mood-mapped-mbti">
                 연관 MBTI: <span id="mapped-mbtis">INTJ, ISTJ, ENTJ, INTP, ENTP...</span>
             </div>
         </section>
 
-        <!-- 07. TYPE LOOKBOOK (Reels / Instagram Style Carousel) -->
+        <!-- 07. TYPE LOOKBOOK -->
         <section id="lookbook" class="section-container">
             <div class="section-title-wrap">
-                <span class="y2k-tag">07. INSTAGRAM REELS VIBE</span>
-                <h2 class="section-title">#TYPE16 LOOKBOOK</h2>
-                <p class="section-desc">리얼 아웃핏 착장을 슬라이드하고 바로 착장 상품을 바로 장바구니에 담아보세요.</p>
+                <span class="adv-tag">07. EDITORIAL LOOKBOOK</span>
+                <h2 class="adv-section-title">#TYPE16 LOOKBOOK</h2>
+                <p class="adv-section-desc">착장 이미지를 탐색하고 마음에 드는 코디 상품을 바로 담아보세요.</p>
             </div>
 
-            <div class="lookbook-carousel-wrap">
+            <div class="lookbook-track-wrap">
                 <div class="lookbook-track" id="lookbook-track">
-                    <!-- Rendered dynamically -->
+                    <!-- Dynamic Cards -->
                 </div>
             </div>
         </section>
 
-        <!-- 08. SHOP PRODUCTS CATALOG -->
+        <!-- 08. SHOP PRODUCTS CATALOG (WITH MBTI PRODUCT IMAGES) -->
         <section id="shop" class="section-container">
             <div class="section-title-wrap">
-                <span class="y2k-tag">08. OFFICIAL SHOP</span>
-                <h2 class="section-title">TYPE:16 PRODUCTS</h2>
-                <p class="section-desc">16가지 성향 레이어가 적용된 시그니처 가을 신상품</p>
+                <span class="adv-tag">08. OFFICIAL SHOP</span>
+                <h2 class="adv-section-title">TYPE:16 PRODUCTS</h2>
+                <p class="adv-section-desc">MBTI Match 적합도 알고리즘이 적용된 신상품 컬렉션</p>
             </div>
 
             <div class="shop-tabs">
@@ -306,17 +308,18 @@
                 <button class="shop-tab" onclick="filterShopCategory('ACC')">ACC</button>
             </div>
 
+            <!-- Product Grid with Product Images -->
             <div id="product-grid" class="product-grid">
-                <!-- Rendered dynamically -->
+                <!-- Dynamically rendered -->
             </div>
         </section>
 
-        <!-- 09. COMMUNITY (HOW DO YOU WEAR YOUR TYPE?) -->
+        <!-- 09. COMMUNITY (USER SNAP FEED) -->
         <section id="community" class="section-container">
             <div class="section-title-wrap">
-                <span class="y2k-tag">09. USER SNAP FEED</span>
-                <h2 class="section-title">HOW DO YOU WEAR YOUR TYPE?</h2>
-                <p class="section-desc">자신의 스타일 착장을 공유하고 #TYPE16 엠버서더 혜택을 받으세요.</p>
+                <span class="adv-tag">09. USER SNAP FEED</span>
+                <h2 class="adv-section-title">HOW DO YOU WEAR YOUR TYPE?</h2>
+                <p class="adv-section-desc">자신의 MBTI 착장을 공유하고 엠버서더 혜택을 받아보세요.</p>
             </div>
 
             <div class="community-actions">
@@ -327,68 +330,64 @@
                     <span class="htag">#ENFP</span>
                     <span class="htag">#ISTP</span>
                 </div>
-                <button class="btn btn-y2k-pink" onclick="openUploadModal()"><i class="fa-solid fa-camera"></i> OOTD 업로드</button>
+                <button class="btn btn-adv-orange" onclick="openUploadModal()"><i class="fa-solid fa-camera"></i> OOTD 업로드</button>
             </div>
 
-            <div class="community-grid" id="community-grid">
-                <!-- Rendered dynamically -->
-            </div>
+            <div class="community-grid" id="community-grid"></div>
         </section>
     </main>
 
-    <!-- MODAL 1: 16 MBTI STYLE ARCHIVE MODAL -->
+    <!-- MODAL 1: 16 MBTI STYLE ARCHIVE MODAL (WITH FASHION EXAMPLE & PRODUCT IMAGES) -->
     <div id="archive-modal" class="modal-backdrop hidden">
-        <div class="modal-window y2k-window">
-            <div class="window-bar">
-                <span id="modal-mbti-code" class="window-title">INTJ — THE ARCHITECT</span>
-                <button class="window-close" onclick="closeModal('archive-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-window paper-window">
+            <div class="paper-bar">
+                <span id="modal-mbti-code" class="paper-title">INTJ — THE ARCHITECT</span>
+                <button class="paper-close" onclick="closeModal('archive-modal')"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="window-body" id="archive-modal-body">
-                <!-- Dynamic Content -->
+            <div class="paper-body" id="archive-modal-body">
+                <!-- Dynamic Content with Fashion Image & Product Images -->
             </div>
         </div>
     </div>
 
     <!-- MODAL 2: MBTI PRODUCT DETAIL MODAL -->
     <div id="product-modal" class="modal-backdrop hidden">
-        <div class="modal-window y2k-window lg">
-            <div class="window-bar">
-                <span id="prod-modal-title" class="window-title">TYPE:16 PRODUCT SPEC</span>
-                <button class="window-close" onclick="closeModal('product-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-window paper-window lg">
+            <div class="paper-bar">
+                <span id="prod-modal-title" class="paper-title">TYPE:16 PRODUCT SPEC</span>
+                <button class="paper-close" onclick="closeModal('product-modal')"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="window-body" id="product-modal-body">
+            <div class="paper-body" id="product-modal-body">
                 <!-- Dynamic Content -->
             </div>
         </div>
     </div>
 
-    <!-- DRAWER: CART / WISHLIST -->
+    <!-- DRAWER: CART & WISHLIST -->
     <div id="side-drawer" class="drawer-backdrop hidden">
-        <div class="drawer-panel y2k-window">
-            <div class="window-bar">
-                <span id="drawer-title" class="window-title">YOUR SHOPPING BAG</span>
-                <button class="window-close" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="drawer-panel paper-window">
+            <div class="paper-bar">
+                <span id="drawer-title" class="paper-title">YOUR SHOPPING BAG</span>
+                <button class="paper-close" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="drawer-items" class="drawer-content">
-                <!-- Dynamic Cart Items -->
-            </div>
+            <div id="drawer-items" class="drawer-content"></div>
             <div class="drawer-footer">
                 <div class="subtotal-row">
                     <span>TOTAL PRICE:</span>
                     <strong id="drawer-total-price">₩0</strong>
                 </div>
-                <button class="btn btn-y2k-pink btn-full" onclick="checkoutAlert()">CHECKOUT NOW <i class="fa-solid fa-credit-card"></i></button>
+                <button class="btn btn-adv-orange btn-full" onclick="checkoutAlert()">CHECKOUT NOW <i class="fa-solid fa-credit-card"></i></button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-adv">
         <div class="footer-container">
             <div class="footer-brand">
-                <span class="logo-y2k">TYPE:<span class="pink">16</span></span>
-                <p class="footer-slogan">WEAR YOUR TYPE. 성격을 입다.</p>
-                <p class="footer-copy">© 2026 TYPE:16 STUDIO. Deployed on GitHub Pages.</p>
+                <span class="logo-adv">TYPE:<span class="orange">16</span> × AD VILLAINS</span>
+                <p class="footer-slogan">WEAR YOUR TYPE. BE ORIGINAL.</p>
+                <p class="footer-copy">© 2026 TYPE:16 STUDIO & AD VILLAINS. Deployed on GitHub Pages.</p>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/leejinho970715-star/unusual_ago" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub Repository</a>
