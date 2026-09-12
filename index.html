@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNUSUAL AGO | MBTI 시즌테마 패션 컬렉션</title>
+    <meta name="description" content="16가지 MBTI 성향과 사계절 감성을 결합한 맞춤형 프리미엄 패션 큐레이션 스튜디오 UNUSUAL AGO">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <span class="logo-accent">UNUSUAL</span> AGO
+                <span class="badge">MBTI x SEASON</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#hero" class="nav-item active"><i class="fa-solid fa-compass"></i> Explore</a>
+                <a href="#mbti-selector" class="nav-item"><i class="fa-solid fa-brain"></i> MBTI Curation</a>
+                <a href="#seasons" class="nav-item"><i class="fa-solid fa-cloud-sun"></i> Seasons</a>
+                <a href="#lookbook" class="nav-item"><i class="fa-solid fa-shirt"></i> Lookbook</a>
+                <a href="#quiz" class="nav-item badge-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Style Quiz</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="cart-btn" class="icon-btn" title="Saved Capsule">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span id="saved-count" class="count-badge">0</span>
+                </button>
+                <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-glow"></div>
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <i class="fa-solid fa-sparkles"></i> Personal Aesthetic Curation Studio
+                </div>
+                <h1 class="hero-title">
+                    당신의 <span class="gradient-text">MBTI</span>와 <br>
+                    계절의 감성을 입다
+                </h1>
+                <p class="hero-subtitle">
+                    16가지 성향 레이어와 사계절 무드 팔레트가 만나는 지점. <br>
+                    나만을 위해 구조화된 시그니처 루틴 패션 라이브러리 <strong>UNUSUAL AGO</strong>.
+                </p>
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary" onclick="scrollToSection('mbti-selector')">
+                        <i class="fa-solid fa-sliders"></i> MBTI 큐레이션 시작
+                    </button>
+                    <button class="btn btn-glass" onclick="openQuizModal()">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> 3초 AI 스타일 분석
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quick Feature Cards -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">16</span>
+                    <span class="stat-label">MBTI Personalities</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">4</span>
+                    <span class="stat-label">Seasonal Aesthetics</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">64+</span>
+                    <span class="stat-label">Curated Styling Sets</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MBTI Group Selector Section -->
+        <section id="mbti-selector" class="section-container">
+            <div class="section-header">
+                <span class="sub-heading">PERSONALITY TYPE</span>
+                <h2>MBTI 16가지 성향별 패션 페르소나</h2>
+                <p>당신의 성향 그룹을 선택하여 차별화된 핏과 톤앤매치를 확인하세요.</p>
+            </div>
+
+            <!-- MBTI Group Tabs -->
+            <div class="mbti-group-tabs">
+                <button class="group-tab active" data-group="all">
+                    <i class="fa-solid fa-border-all"></i> 전체 (ALL)
+                </button>
+                <button class="group-tab" data-group="analysts">
+                    <i class="fa-solid fa-atom"></i> 분석가형 (NT)
+                </button>
+                <button class="group-tab" data-group="diplomats">
+                    <i class="fa-solid fa-feather"></i> 외교관형 (NF)
+                </button>
+                <button class="group-tab" data-group="sentinels">
+                    <i class="fa-solid fa-shield-halved"></i> 관리자형 (SJ)
+                </button>
+                <button class="group-tab" data-group="explorers">
+                    <i class="fa-solid fa-compass-drafting"></i> 탐험가형 (SP)
+                </button>
+            </div>
+
+            <!-- MBTI Type Grid -->
+            <div id="mbti-grid" class="mbti-grid">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Seasonal Mood Section -->
+        <section id="seasons" class="section-container season-bg-wrapper">
+            <div class="section-header">
+                <span class="sub-heading">SEASONAL ATMOSPHERE</span>
+                <h2>사계절 무드 팔레트</h2>
+                <p>계절의 온도 변화에 맞춘 아웃핏 소재와 컬러 믹스 앤 매치</p>
+            </div>
+
+            <div class="season-selector">
+                <div class="season-card spring active" data-season="spring">
+                    <div class="season-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>SPRING</h3>
+                    <span class="season-kr">봄 : 블라썸 & 패스텔</span>
+                    <p class="season-desc">화사한 트렌치코트, 실크 블라우스, 맑은 피치 & 사이지 톤</p>
+                </div>
+                <div class="season-card summer" data-season="summer">
+                    <div class="season-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <h3>SUMMER</h3>
+                    <span class="season-kr">여름 : 오션 & 미니멀</span>
+                    <p class="season-desc">린넨 셔츠, 세이지 시어템, 시원한 쿨 블루 & 실버 엑센트</p>
+                </div>
+                <div class="season-card autumn" data-season="autumn">
+                    <div class="season-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>AUTUMN</h3>
+                    <span class="season-kr">가을 : 우디 & 빈티지</span>
+                    <p class="season-desc">클래식 블레이저, 니트 레이어드, 딥 브라운 & 카멜 톤</p>
+                </div>
+                <div class="season-card winter" data-season="winter">
+                    <div class="season-icon"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3>WINTER</h3>
+                    <span class="season-kr">겨울 : 롱코트 & 오버핏</span>
+                    <p class="season-desc">캐시미어 코트, 볼드 타틀넥, 딥 숯색 & 크림 실루엣</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dynamic Lookbook Section -->
+        <section id="lookbook" class="section-container">
+            <div class="lookbook-controls">
+                <div class="controls-info">
+                    <h2 id="current-filter-title">현재 큐레이션: 전체 Lookbook</h2>
+                    <p id="current-filter-desc">MBTI 성향과 계절 탭을 클릭해 맞춤 스타일링을 확인하세요.</p>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="MBTI, 아이템, 태그 검색 (예: INTJ, 코트, 린넨)">
+                </div>
+            </div>
+
+            <!-- Lookbook Cards Grid -->
+            <div id="lookbook-grid" class="lookbook-grid">
+                <!-- Dynamic Content Rendered Here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Style Quiz Modal -->
+    <div id="quiz-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeQuizModal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div id="quiz-step-1" class="quiz-step">
+                <div class="quiz-progress"><div class="progress-bar" style="width: 33%"></div></div>
+                <span class="quiz-badge">Step 01 / 03</span>
+                <h3>당신의 MBTI 성향 그룹은 어디인가요?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-opt" onclick="selectQuizStep(1, 'NT')">
+                        <strong>🧠 분석가형 (NT)</strong>
+                        <span>INTJ, INTP, ENTJ, ENTP - 세련된 논리와 스마트 미니멀리즘</span>
+                    </button>
+                    <button class="quiz-opt" onclick="selectQuizStep(1, 'NF')">
+                        <strong>🌟 외교관형 (NF)</strong>
+                        <span>INFJ, INFP, ENFJ, ENFP - 감성적 유니크 & 빈티지 로맨틱</span>
+                    </button>
+                    <button class="quiz-opt" onclick="selectQuizStep(1, 'SJ')">
+                        <strong>🛡️ 관리자형 (SJ)</strong>
+                        <span>ISTJ, ISFJ, ESTJ, ESFJ - 클래식 핏 & 정교한 클린룩</span>
+                    </button>
+                    <button class="quiz-opt" onclick="selectQuizStep(1, 'SP')">
+                        <strong>🎨 탐험가형 (SP)</strong>
+                        <span>ISTP, ISFP, ESTP, ESFP - 트렌디 스트리트 & 자유로운 실루엣</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="quiz-step-2" class="quiz-step hidden">
+                <div class="quiz-progress"><div class="progress-bar" style="width: 66%"></div></div>
+                <span class="quiz-badge">Step 02 / 03</span>
+                <h3>현재 가장 맞추고 싶은 계절 감성은?</h3>
+                <div class="quiz-options grid-2x2">
+                    <button class="quiz-opt" onclick="selectQuizStep(2, 'spring')">🌸 Spring Blossom</button>
+                    <button class="quiz-opt" onclick="selectQuizStep(2, 'summer')">🏖️ Summer Breeze</button>
+                    <button class="quiz-opt" onclick="selectQuizStep(2, 'autumn')">🍁 Autumn Vintage</button>
+                    <button class="quiz-opt" onclick="selectQuizStep(2, 'winter')">❄️ Winter Elegance</button>
+                </div>
+            </div>
+
+            <div id="quiz-step-3" class="quiz-step hidden">
+                <div class="quiz-progress"><div class="progress-bar" style="width: 100%"></div></div>
+                <span class="quiz-badge">Step 03 / 03</span>
+                <h3>오늘 추구하는 스타일링 무드는?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-opt" onclick="finishQuiz('minimal')">✨ 깔끔하고 절제된 미니멀 핏</button>
+                    <button class="quiz-opt" onclick="finishQuiz('layered')">🧶 포근하고 입체적인 레이어드 핏</button>
+                    <button class="quiz-opt" onclick="finishQuiz('statement')">🔥 확실한 포인트의 스트리트/스테이트먼트 핏</button>
+                </div>
+            </div>
+
+            <div id="quiz-result" class="quiz-step hidden">
+                <div class="result-header">
+                    <i class="fa-solid fa-sparkles result-icon"></i>
+                    <h3>당신만을 위한 추천 스타일링</h3>
+                    <p id="result-desc">선택된 MBTI와 계절 감성을 매칭한 최고의 조화</p>
+                </div>
+                <div id="result-card-container"></div>
+                <button class="btn btn-primary btn-full" onclick="closeQuizModal()">룩북 전체 결과 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saved Capsule Drawer Modal -->
+    <div id="capsule-drawer" class="drawer-backdrop hidden">
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <h3><i class="fa-solid fa-bookmark"></i> 저장된 나만의 캡슐 (Lookbook)</h3>
+                <button class="icon-btn" onclick="toggleCapsuleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="capsule-items" class="drawer-body">
+                <!-- Items inserted via JS -->
+            </div>
+            <div class="drawer-footer">
+                <button class="btn btn-glass btn-full" onclick="clearCapsule()">전체 비우기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <span class="logo-accent">UNUSUAL</span> AGO
+                </div>
+                <p>MBTI Persona & Seasonal Aesthetics Fashion Studio</p>
+            </div>
+            <div class="footer-links">
+                <p>© 2026 UNUSUAL AGO. Deployed with GitHub Pages.</p>
+                <p>Repository: <a href="https://github.com/leejinho970715-star/unusual_ago" target="_blank" rel="noopener">leejinho970715-star/unusual_ago</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
