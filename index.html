@@ -3,257 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNUSUAL AGO | MBTI 시즌테마 패션 컬렉션</title>
-    <meta name="description" content="16가지 MBTI 성향과 사계절 감성을 결합한 맞춤형 프리미엄 패션 큐레이션 스튜디오 UNUSUAL AGO">
-    
-    <!-- Google Fonts -->
+    <title>TYPE:16 — WEAR YOUR TYPE | 2026 FALL COLLECTION</title>
+    <meta name="description" content="성격을 입다. 16개의 Personality, 16개의 Style. Y2K 스트리트 패션 & MBTI 무드 큐레이션 스튜디오 TYPE:16">
+
+    <!-- Google Fonts: Y2K Cyber & Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- GSAP (GreenSock Animation Platform) & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-dark">
-    <!-- Header Navigation -->
-    <header class="navbar">
+<body class="theme-y2k">
+
+    <!-- Top Marquee Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">⚡ TYPE:16 — WEAR YOUR TYPE ⚡ 2026 FALL — INSIDE MY TYPE ⚡ 16 PERSONALITIES, 16 DIFFERENT STYLES ⚡ FREE WORLDWIDE SHIPPING ON ORDERS OVER ₩100,000 ⚡</div>
+            <div class="ticker-item">⚡ TYPE:16 — WEAR YOUR TYPE ⚡ 2026 FALL — INSIDE MY TYPE ⚡ 16 PERSONALITIES, 16 DIFFERENT STYLES ⚡ FREE WORLDWIDE SHIPPING ON ORDERS OVER ₩100,000 ⚡</div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="brand-logo">
-                <span class="logo-accent">UNUSUAL</span> AGO
-                <span class="badge">MBTI x SEASON</span>
+                <span class="logo-y2k">TYPE:<span class="pink">16</span></span>
+                <span class="logo-badge">FALL '26</span>
             </a>
-            
-            <nav class="nav-links">
-                <a href="#hero" class="nav-item active"><i class="fa-solid fa-compass"></i> Explore</a>
-                <a href="#mbti-selector" class="nav-item"><i class="fa-solid fa-brain"></i> MBTI Curation</a>
-                <a href="#seasons" class="nav-item"><i class="fa-solid fa-cloud-sun"></i> Seasons</a>
-                <a href="#lookbook" class="nav-item"><i class="fa-solid fa-shirt"></i> Lookbook</a>
-                <a href="#quiz" class="nav-item badge-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Style Quiz</a>
+
+            <nav class="nav-menu">
+                <a href="#shop" class="nav-link">SHOP</a>
+                <a href="#types-collection" class="nav-link">16 TYPES</a>
+                <a href="#hero" class="nav-link">COLLECTION</a>
+                <a href="#type-test" class="nav-link badge-y2k">TYPE TEST</a>
+                <a href="#lookbook" class="nav-link">LOOKBOOK</a>
+                <a href="#community" class="nav-link">COMMUNITY</a>
             </nav>
 
             <div class="nav-actions">
-                <button id="cart-btn" class="icon-btn" title="Saved Capsule">
-                    <i class="fa-solid fa-bookmark"></i>
-                    <span id="saved-count" class="count-badge">0</span>
+                <button class="icon-btn" id="search-btn" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-                <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-                    <i class="fa-solid fa-moon"></i>
+                <button class="icon-btn" id="wishlist-btn" title="Wishlist Capsule" onclick="toggleDrawer('wishlist')">
+                    <i class="fa-solid fa-heart"></i>
+                    <span id="wish-count" class="badge-count">0</span>
+                </button>
+                <button class="icon-btn cart-btn" id="cart-btn" title="Cart" onclick="toggleDrawer('cart')">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count" class="badge-count">0</span>
+                </button>
+                <button class="theme-toggle-btn" id="theme-toggle" title="Y2K Mode Switch">
+                    <i class="fa-solid fa-bolt"></i> Y2K
                 </button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- 01. HERO SECTION -->
         <section id="hero" class="hero-section">
-            <div class="hero-bg-glow"></div>
+            <div class="hero-bg-container">
+                <img src="assets/hero_campaign.jpg" alt="TYPE:16 Y2K Campaign" class="hero-bg-img" id="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Y2K Stickers Floating -->
+            <div class="y2k-sticker sticker-1 gsap-sticker">WEAR YOUR TYPE</div>
+            <div class="y2k-sticker sticker-2 gsap-sticker">HOT 2026 DROP</div>
+            <div class="y2k-sticker sticker-3 gsap-sticker">★ 16 STYLES ★</div>
+
             <div class="hero-content">
-                <div class="hero-tag">
-                    <i class="fa-solid fa-sparkles"></i> Personal Aesthetic Curation Studio
+                <div class="hero-badge">
+                    <i class="fa-solid fa-fire"></i> 2026 FALL — INSIDE MY TYPE
                 </div>
-                <h1 class="hero-title">
-                    당신의 <span class="gradient-text">MBTI</span>와 <br>
-                    계절의 감성을 입다
+                <h1 class="hero-title gsap-hero-text">
+                    <span class="text-stroke">TYPE:16</span> <br>
+                    WEAR YOUR TYPE
                 </h1>
-                <p class="hero-subtitle">
-                    16가지 성향 레이어와 사계절 무드 팔레트가 만나는 지점. <br>
-                    나만을 위해 구조화된 시그니처 루틴 패션 라이브러리 <strong>UNUSUAL AGO</strong>.
+                <p class="hero-subtitle gsap-hero-sub">
+                    성격을 입다. 16개의 Personality, 16개의 Style.<br>
+                    당신의 MBTI에 맞춘 시그니처 Y2K 패션 스트리트 컬렉션.
                 </p>
-                <div class="hero-cta-group">
-                    <button class="btn btn-primary" onclick="scrollToSection('mbti-selector')">
-                        <i class="fa-solid fa-sliders"></i> MBTI 큐레이션 시작
+                <div class="hero-cta gsap-hero-cta">
+                    <a href="#type-test" class="btn btn-y2k-pink">
+                        FIND MY TYPE <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#types-collection" class="btn btn-y2k-outline">
+                        EXPLORE 16 TYPES
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. WHAT'S YOUR TYPE? (Interactive Quick Quiz) -->
+        <section id="type-test" class="section-container quiz-section">
+            <div class="section-title-wrap text-center">
+                <span class="y2k-tag">02. FASHION TYPE TEST</span>
+                <h2 class="section-title">WHAT'S YOUR TYPE?</h2>
+                <p class="section-desc">4가지 선택으로 완성되는 당신만의 Y2K 시그니처 핏 큐레이션</p>
+            </div>
+
+            <div class="quiz-card-box">
+                <div class="quiz-sliders">
+                    <!-- Switch 1: E vs I -->
+                    <div class="quiz-row">
+                        <span class="quiz-label label-e">E (Extraversion)</span>
+                        <div class="quiz-toggle" onclick="toggleQuizTrait(0)">
+                            <div class="quiz-handle" id="handle-0"></div>
+                        </div>
+                        <span class="quiz-label label-i">I (Introversion)</span>
+                    </div>
+                    <!-- Switch 2: N vs S -->
+                    <div class="quiz-row">
+                        <span class="quiz-label label-n">N (Intuition)</span>
+                        <div class="quiz-toggle" onclick="toggleQuizTrait(1)">
+                            <div class="quiz-handle" id="handle-1"></div>
+                        </div>
+                        <span class="quiz-label label-s">S (Sensing)</span>
+                    </div>
+                    <!-- Switch 3: F vs T -->
+                    <div class="quiz-row">
+                        <span class="quiz-label label-f">F (Feeling)</span>
+                        <div class="quiz-toggle" onclick="toggleQuizTrait(2)">
+                            <div class="quiz-handle" id="handle-2"></div>
+                        </div>
+                        <span class="quiz-label label-t">T (Thinking)</span>
+                    </div>
+                    <!-- Switch 4: P vs J -->
+                    <div class="quiz-row">
+                        <span class="quiz-label label-p">P (Perceiving)</span>
+                        <div class="quiz-toggle" onclick="toggleQuizTrait(3)">
+                            <div class="quiz-handle" id="handle-3"></div>
+                        </div>
+                        <span class="quiz-label label-j">J (Judging)</span>
+                    </div>
+                </div>
+
+                <div class="quiz-result-card">
+                    <span class="result-sub">YOUR MATCHED PERSONALITY</span>
+                    <h3 id="quiz-result-code" class="result-mbti">INFP</h3>
+                    <div id="quiz-result-title" class="result-title">DREAMY VINTAGE</div>
+                    <p id="quiz-result-desc" class="result-text">감성적인 크로셰, 포근한 니트 레이어드와 로맨틱 파스텔 무드</p>
+                    <button id="quiz-explore-btn" class="btn btn-y2k-cyan" onclick="openTypeArchive(currentQuizMbti)">
+                        Explore INFP Style Archive <i class="fa-solid fa-chevron-right"></i>
                     </button>
-                    <button class="btn btn-glass" onclick="openQuizModal()">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> 3초 AI 스타일 분석
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. 16 TYPES COLLECTION GRID -->
+        <section id="types-collection" class="section-container">
+            <div class="section-title-wrap">
+                <span class="y2k-tag">03. ARCHIVE LIBRARY</span>
+                <h2 class="section-title">16 TYPES COLLECTION</h2>
+                <p class="section-desc">MBTI = 스타일 큐레이션. 16가지 고유 캐릭터 핏과 톤앤매치를 클릭하여 탐색하세요.</p>
+            </div>
+
+            <!-- Group Filter Tabs -->
+            <div class="group-filter-bar">
+                <button class="filter-btn active" data-group="all">ALL TYPES</button>
+                <button class="filter-btn" data-group="analysts">ANALYSTS (NT)</button>
+                <button class="filter-btn" data-group="diplomats">DIPLOMATS (NF)</button>
+                <button class="filter-btn" data-group="sentinels">SENTINELS (SJ)</button>
+                <button class="filter-btn" data-group="explorers">EXPLORERS (SP)</button>
+            </div>
+
+            <div id="types-grid" class="types-grid">
+                <!-- Rendered dynamically via JavaScript -->
+            </div>
+        </section>
+
+        <!-- 04. TYPE OF THE WEEK SPOTLIGHT -->
+        <section id="weekly-spotlight" class="section-container weekly-section">
+            <div class="weekly-banner">
+                <div class="weekly-info">
+                    <span class="y2k-badge-hot">WEEKLY SPECIAL</span>
+                    <h2 class="weekly-title">TYPE OF THE WEEK</h2>
+                    <h3 class="weekly-mbti">ENFP — THE SPARK</h3>
+                    <div class="weekly-keywords">
+                        <span class="kw-tag">#LOUD</span>
+                        <span class="kw-tag">#COLORFUL</span>
+                        <span class="kw-tag">#FREE_SPIRIT</span>
+                    </div>
+                    <p class="weekly-desc">
+                        톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드. 통통 튀는 에너지로 자유로운 스타일링을 완벽하게 소화하는 ENFP만의 큐레이션!
+                    </p>
+                    <button class="btn btn-y2k-pink" onclick="filterShopByMbti('ENFP')">
+                        SHOP ENFP COLLECTION <i class="fa-solid fa-bag-shopping"></i>
                     </button>
                 </div>
-            </div>
-            
-            <!-- Quick Feature Cards -->
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <span class="stat-num">16</span>
-                    <span class="stat-label">MBTI Personalities</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num">4</span>
-                    <span class="stat-label">Seasonal Aesthetics</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num">64+</span>
-                    <span class="stat-label">Curated Styling Sets</span>
+                <div class="weekly-media">
+                    <img src="assets/lookbook_colorpop.jpg" alt="ENFP Lookbook" class="weekly-img">
                 </div>
             </div>
         </section>
 
-        <!-- MBTI Group Selector Section -->
-        <section id="mbti-selector" class="section-container">
-            <div class="section-header">
-                <span class="sub-heading">PERSONALITY TYPE</span>
-                <h2>MBTI 16가지 성향별 패션 페르소나</h2>
-                <p>당신의 성향 그룹을 선택하여 차별화된 핏과 톤앤매치를 확인하세요.</p>
+        <!-- 05. TYPE MATCH (YOUR TYPE x THEIR TYPE) -->
+        <section id="type-match" class="section-container match-section">
+            <div class="section-title-wrap text-center">
+                <span class="y2k-tag">05. STYLING SYNERGY</span>
+                <h2 class="section-title">TYPE MATCH</h2>
+                <p class="section-desc">YOUR TYPE × THEIR TYPE — 커플 & 시스터 룩 스타일링 시너지 매칭</p>
             </div>
 
-            <!-- MBTI Group Tabs -->
-            <div class="mbti-group-tabs">
-                <button class="group-tab active" data-group="all">
-                    <i class="fa-solid fa-border-all"></i> 전체 (ALL)
-                </button>
-                <button class="group-tab" data-group="analysts">
-                    <i class="fa-solid fa-atom"></i> 분석가형 (NT)
-                </button>
-                <button class="group-tab" data-group="diplomats">
-                    <i class="fa-solid fa-feather"></i> 외교관형 (NF)
-                </button>
-                <button class="group-tab" data-group="sentinels">
-                    <i class="fa-solid fa-shield-halved"></i> 관리자형 (SJ)
-                </button>
-                <button class="group-tab" data-group="explorers">
-                    <i class="fa-solid fa-compass-drafting"></i> 탐험가형 (SP)
-                </button>
-            </div>
+            <div class="match-box">
+                <div class="match-selectors">
+                    <div class="selector-card">
+                        <label>YOUR TYPE</label>
+                        <select id="match-type-1" class="y2k-select" onchange="calculateTypeMatch()">
+                            <!-- Dynamically generated -->
+                        </select>
+                    </div>
 
-            <!-- MBTI Type Grid -->
-            <div id="mbti-grid" class="mbti-grid">
-                <!-- Injected via JavaScript -->
-            </div>
-        </section>
+                    <div class="match-icon-circle"><i class="fa-solid fa-xmark"></i></div>
 
-        <!-- Seasonal Mood Section -->
-        <section id="seasons" class="section-container season-bg-wrapper">
-            <div class="section-header">
-                <span class="sub-heading">SEASONAL ATMOSPHERE</span>
-                <h2>사계절 무드 팔레트</h2>
-                <p>계절의 온도 변화에 맞춘 아웃핏 소재와 컬러 믹스 앤 매치</p>
-            </div>
-
-            <div class="season-selector">
-                <div class="season-card spring active" data-season="spring">
-                    <div class="season-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <h3>SPRING</h3>
-                    <span class="season-kr">봄 : 블라썸 & 패스텔</span>
-                    <p class="season-desc">화사한 트렌치코트, 실크 블라우스, 맑은 피치 & 사이지 톤</p>
+                    <div class="selector-card">
+                        <label>THEIR TYPE</label>
+                        <select id="match-type-2" class="y2k-select" onchange="calculateTypeMatch()">
+                            <!-- Dynamically generated -->
+                        </select>
+                    </div>
                 </div>
-                <div class="season-card summer" data-season="summer">
-                    <div class="season-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
-                    <h3>SUMMER</h3>
-                    <span class="season-kr">여름 : 오션 & 미니멀</span>
-                    <p class="season-desc">린넨 셔츠, 세이지 시어템, 시원한 쿨 블루 & 실버 엑센트</p>
-                </div>
-                <div class="season-card autumn" data-season="autumn">
-                    <div class="season-icon"><i class="fa-solid fa-leaf"></i></div>
-                    <h3>AUTUMN</h3>
-                    <span class="season-kr">가을 : 우디 & 빈티지</span>
-                    <p class="season-desc">클래식 블레이저, 니트 레이어드, 딥 브라운 & 카멜 톤</p>
-                </div>
-                <div class="season-card winter" data-season="winter">
-                    <div class="season-icon"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3>WINTER</h3>
-                    <span class="season-kr">겨울 : 롱코트 & 오버핏</span>
-                    <p class="season-desc">캐시미어 코트, 볼드 타틀넥, 딥 숯색 & 크림 실루엣</p>
+
+                <div id="match-result-box" class="match-result-box">
+                    <div class="match-score-badge">
+                        SYNERGY <span id="match-score">96%</span>
+                    </div>
+                    <h3 id="match-combo-title" class="combo-title">INTJ (Dark Minimal) × ENFP (Color Pop)</h3>
+                    <p id="match-combo-desc" class="combo-desc">
+                        시크한 INTJ의 구조적 차콜 블레이저와 ENFP의 산뜻한 네온 크롭 탑이 조화를 이루는 극과 극의 반전 매력 커플룩!
+                    </p>
+                    <div class="match-actions">
+                        <button class="btn btn-y2k-outline" onclick="shareMatchResult()"><i class="fa-solid fa-share-nodes"></i> SNS 공유하기</button>
+                        <button class="btn btn-y2k-cyan" onclick="openShopWithMatch()"><i class="fa-solid fa-sparkles"></i> 매칭 룩북 보러가기</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Dynamic Lookbook Section -->
+        <!-- 06. SHOP BY MOOD -->
+        <section id="shop-by-mood" class="section-container">
+            <div class="section-title-wrap">
+                <span class="y2k-tag">06. MOOD CURATION</span>
+                <h2 class="section-title">SHOP BY MOOD</h2>
+                <p class="section-desc">MBTI를 몰라도 괜찮아요! 오늘 당신이 원하는 패션 무드를 선택하세요.</p>
+            </div>
+
+            <div class="mood-pills">
+                <button class="mood-pill active" onclick="selectMoodFilter('ALL')">ALL MOODS</button>
+                <button class="mood-pill" onclick="selectMoodFilter('MINIMAL')">✨ MINIMAL</button>
+                <button class="mood-pill" onclick="selectMoodFilter('STREET')">🔥 STREET</button>
+                <button class="mood-pill" onclick="selectMoodFilter('ROMANTIC')">🌸 ROMANTIC</button>
+                <button class="mood-pill" onclick="selectMoodFilter('VINTAGE')">🍁 VINTAGE</button>
+                <button class="mood-pill" onclick="selectMoodFilter('TECH')">👾 TECH</button>
+                <button class="mood-pill" onclick="selectMoodFilter('SPORTY')">⚽ SPORTY</button>
+                <button class="mood-pill" onclick="selectMoodFilter('Y2K')">🛸 Y2K POP</button>
+            </div>
+
+            <div id="mood-mbti-mapping" class="mood-mapping-badge">
+                연관 MBTI: <span id="mapped-mbtis">INTJ, ISTJ, ENTJ, INTP, ENTP...</span>
+            </div>
+        </section>
+
+        <!-- 07. TYPE LOOKBOOK (Reels / Instagram Style Carousel) -->
         <section id="lookbook" class="section-container">
-            <div class="lookbook-controls">
-                <div class="controls-info">
-                    <h2 id="current-filter-title">현재 큐레이션: 전체 Lookbook</h2>
-                    <p id="current-filter-desc">MBTI 성향과 계절 탭을 클릭해 맞춤 스타일링을 확인하세요.</p>
-                </div>
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="search-input" placeholder="MBTI, 아이템, 태그 검색 (예: INTJ, 코트, 린넨)">
-                </div>
+            <div class="section-title-wrap">
+                <span class="y2k-tag">07. INSTAGRAM REELS VIBE</span>
+                <h2 class="section-title">#TYPE16 LOOKBOOK</h2>
+                <p class="section-desc">리얼 아웃핏 착장을 슬라이드하고 바로 착장 상품을 바로 장바구니에 담아보세요.</p>
             </div>
 
-            <!-- Lookbook Cards Grid -->
-            <div id="lookbook-grid" class="lookbook-grid">
-                <!-- Dynamic Content Rendered Here -->
+            <div class="lookbook-carousel-wrap">
+                <div class="lookbook-track" id="lookbook-track">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. SHOP PRODUCTS CATALOG -->
+        <section id="shop" class="section-container">
+            <div class="section-title-wrap">
+                <span class="y2k-tag">08. OFFICIAL SHOP</span>
+                <h2 class="section-title">TYPE:16 PRODUCTS</h2>
+                <p class="section-desc">16가지 성향 레이어가 적용된 시그니처 가을 신상품</p>
+            </div>
+
+            <div class="shop-tabs">
+                <button class="shop-tab active" onclick="filterShopCategory('ALL')">ALL</button>
+                <button class="shop-tab" onclick="filterShopCategory('NEW')">NEW 2026</button>
+                <button class="shop-tab" onclick="filterShopCategory('BEST')">BEST SELLER</button>
+                <button class="shop-tab" onclick="filterShopCategory('OUTER')">OUTER</button>
+                <button class="shop-tab" onclick="filterShopCategory('TOP')">TOP</button>
+                <button class="shop-tab" onclick="filterShopCategory('BOTTOM')">BOTTOM</button>
+                <button class="shop-tab" onclick="filterShopCategory('ACC')">ACC</button>
+            </div>
+
+            <div id="product-grid" class="product-grid">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- 09. COMMUNITY (HOW DO YOU WEAR YOUR TYPE?) -->
+        <section id="community" class="section-container">
+            <div class="section-title-wrap">
+                <span class="y2k-tag">09. USER SNAP FEED</span>
+                <h2 class="section-title">HOW DO YOU WEAR YOUR TYPE?</h2>
+                <p class="section-desc">자신의 스타일 착장을 공유하고 #TYPE16 엠버서더 혜택을 받으세요.</p>
+            </div>
+
+            <div class="community-actions">
+                <div class="hashtag-pills">
+                    <span class="htag active">#ALL_TYPES</span>
+                    <span class="htag">#INFP</span>
+                    <span class="htag">#INTJ</span>
+                    <span class="htag">#ENFP</span>
+                    <span class="htag">#ISTP</span>
+                </div>
+                <button class="btn btn-y2k-pink" onclick="openUploadModal()"><i class="fa-solid fa-camera"></i> OOTD 업로드</button>
+            </div>
+
+            <div class="community-grid" id="community-grid">
+                <!-- Rendered dynamically -->
             </div>
         </section>
     </main>
 
-    <!-- Style Quiz Modal -->
-    <div id="quiz-modal" class="modal-backdrop hidden">
-        <div class="modal-card">
-            <button class="modal-close" onclick="closeQuizModal()"><i class="fa-solid fa-xmark"></i></button>
-            
-            <div id="quiz-step-1" class="quiz-step">
-                <div class="quiz-progress"><div class="progress-bar" style="width: 33%"></div></div>
-                <span class="quiz-badge">Step 01 / 03</span>
-                <h3>당신의 MBTI 성향 그룹은 어디인가요?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-opt" onclick="selectQuizStep(1, 'NT')">
-                        <strong>🧠 분석가형 (NT)</strong>
-                        <span>INTJ, INTP, ENTJ, ENTP - 세련된 논리와 스마트 미니멀리즘</span>
-                    </button>
-                    <button class="quiz-opt" onclick="selectQuizStep(1, 'NF')">
-                        <strong>🌟 외교관형 (NF)</strong>
-                        <span>INFJ, INFP, ENFJ, ENFP - 감성적 유니크 & 빈티지 로맨틱</span>
-                    </button>
-                    <button class="quiz-opt" onclick="selectQuizStep(1, 'SJ')">
-                        <strong>🛡️ 관리자형 (SJ)</strong>
-                        <span>ISTJ, ISFJ, ESTJ, ESFJ - 클래식 핏 & 정교한 클린룩</span>
-                    </button>
-                    <button class="quiz-opt" onclick="selectQuizStep(1, 'SP')">
-                        <strong>🎨 탐험가형 (SP)</strong>
-                        <span>ISTP, ISFP, ESTP, ESFP - 트렌디 스트리트 & 자유로운 실루엣</span>
-                    </button>
-                </div>
+    <!-- MODAL 1: 16 MBTI STYLE ARCHIVE MODAL -->
+    <div id="archive-modal" class="modal-backdrop hidden">
+        <div class="modal-window y2k-window">
+            <div class="window-bar">
+                <span id="modal-mbti-code" class="window-title">INTJ — THE ARCHITECT</span>
+                <button class="window-close" onclick="closeModal('archive-modal')"><i class="fa-solid fa-xmark"></i></button>
             </div>
-
-            <div id="quiz-step-2" class="quiz-step hidden">
-                <div class="quiz-progress"><div class="progress-bar" style="width: 66%"></div></div>
-                <span class="quiz-badge">Step 02 / 03</span>
-                <h3>현재 가장 맞추고 싶은 계절 감성은?</h3>
-                <div class="quiz-options grid-2x2">
-                    <button class="quiz-opt" onclick="selectQuizStep(2, 'spring')">🌸 Spring Blossom</button>
-                    <button class="quiz-opt" onclick="selectQuizStep(2, 'summer')">🏖️ Summer Breeze</button>
-                    <button class="quiz-opt" onclick="selectQuizStep(2, 'autumn')">🍁 Autumn Vintage</button>
-                    <button class="quiz-opt" onclick="selectQuizStep(2, 'winter')">❄️ Winter Elegance</button>
-                </div>
-            </div>
-
-            <div id="quiz-step-3" class="quiz-step hidden">
-                <div class="quiz-progress"><div class="progress-bar" style="width: 100%"></div></div>
-                <span class="quiz-badge">Step 03 / 03</span>
-                <h3>오늘 추구하는 스타일링 무드는?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-opt" onclick="finishQuiz('minimal')">✨ 깔끔하고 절제된 미니멀 핏</button>
-                    <button class="quiz-opt" onclick="finishQuiz('layered')">🧶 포근하고 입체적인 레이어드 핏</button>
-                    <button class="quiz-opt" onclick="finishQuiz('statement')">🔥 확실한 포인트의 스트리트/스테이트먼트 핏</button>
-                </div>
-            </div>
-
-            <div id="quiz-result" class="quiz-step hidden">
-                <div class="result-header">
-                    <i class="fa-solid fa-sparkles result-icon"></i>
-                    <h3>당신만을 위한 추천 스타일링</h3>
-                    <p id="result-desc">선택된 MBTI와 계절 감성을 매칭한 최고의 조화</p>
-                </div>
-                <div id="result-card-container"></div>
-                <button class="btn btn-primary btn-full" onclick="closeQuizModal()">룩북 전체 결과 보기</button>
+            <div class="window-body" id="archive-modal-body">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </div>
 
-    <!-- Saved Capsule Drawer Modal -->
-    <div id="capsule-drawer" class="drawer-backdrop hidden">
-        <div class="drawer-panel">
-            <div class="drawer-header">
-                <h3><i class="fa-solid fa-bookmark"></i> 저장된 나만의 캡슐 (Lookbook)</h3>
-                <button class="icon-btn" onclick="toggleCapsuleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    <!-- MODAL 2: MBTI PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="modal-backdrop hidden">
+        <div class="modal-window y2k-window lg">
+            <div class="window-bar">
+                <span id="prod-modal-title" class="window-title">TYPE:16 PRODUCT SPEC</span>
+                <button class="window-close" onclick="closeModal('product-modal')"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="capsule-items" class="drawer-body">
-                <!-- Items inserted via JS -->
+            <div class="window-body" id="product-modal-body">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWER: CART / WISHLIST -->
+    <div id="side-drawer" class="drawer-backdrop hidden">
+        <div class="drawer-panel y2k-window">
+            <div class="window-bar">
+                <span id="drawer-title" class="window-title">YOUR SHOPPING BAG</span>
+                <button class="window-close" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="drawer-items" class="drawer-content">
+                <!-- Dynamic Cart Items -->
             </div>
             <div class="drawer-footer">
-                <button class="btn btn-glass btn-full" onclick="clearCapsule()">전체 비우기</button>
+                <div class="subtotal-row">
+                    <span>TOTAL PRICE:</span>
+                    <strong id="drawer-total-price">₩0</strong>
+                </div>
+                <button class="btn btn-y2k-pink btn-full" onclick="checkoutAlert()">CHECKOUT NOW <i class="fa-solid fa-credit-card"></i></button>
             </div>
         </div>
     </div>
@@ -262,19 +386,17 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <div class="brand-logo">
-                    <span class="logo-accent">UNUSUAL</span> AGO
-                </div>
-                <p>MBTI Persona & Seasonal Aesthetics Fashion Studio</p>
+                <span class="logo-y2k">TYPE:<span class="pink">16</span></span>
+                <p class="footer-slogan">WEAR YOUR TYPE. 성격을 입다.</p>
+                <p class="footer-copy">© 2026 TYPE:16 STUDIO. Deployed on GitHub Pages.</p>
             </div>
             <div class="footer-links">
-                <p>© 2026 UNUSUAL AGO. Deployed with GitHub Pages.</p>
-                <p>Repository: <a href="https://github.com/leejinho970715-star/unusual_ago" target="_blank" rel="noopener">leejinho970715-star/unusual_ago</a></p>
+                <a href="https://github.com/leejinho970715-star/unusual_ago" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub Repository</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- App Logic -->
     <script src="app.js"></script>
 </body>
 </html>

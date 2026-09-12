@@ -1,451 +1,739 @@
 // ==========================================================================
-// UNUSUAL AGO - MBTI & Seasonal Fashion Interactive App Logic
+// TYPE:16 — WEAR YOUR TYPE (Y2K MBTI Fashion Studio App Logic)
 // ==========================================================================
 
-// 1. MBTI 16 Personalities Database
-const MBTI_TYPES = [
-    { code: 'INTJ', group: 'analysts', title: '용의주도한 전략가', desc: '절제된 미니멀리즘과 샤프한 테일러링 라인', icon: 'fa-brain', tags: ['스마트', '미니멀', '블랙&그레이'] },
-    { code: 'INTP', group: 'analysts', title: '논리적인 사색가', desc: '편안한 오버핏 슬랙스와 스마트 캐주얼 믹스', icon: 'fa-lightbulb', tags: ['편안함', '노르딕', '슬랙스'] },
-    { code: 'ENTJ', group: 'analysts', title: '대담한 통솔자', desc: '클래식 수트핏과 세련된 파워 드레싱', icon: 'fa-chess-king', tags: ['수트', '파워핏', '네이비'] },
-    { code: 'ENTP', group: 'analysts', title: '뜨거운 논쟁을 즐기는 변론가', desc: '위트있는 스트리트 포인트와 볼드한 액세서리', icon: 'fa-bolt', tags: ['스트리트', '볼드', '유니크'] },
+// 1. 16 MBTI Personality Fashion Matrix Database
+const MBTI_MATRIX = {
+    INTJ: {
+        code: 'INTJ',
+        name: 'THE ARCHITECT',
+        group: 'analysts',
+        mood: 'Dark Minimal',
+        examples: '블랙, 구조적 실루엣, 핀스트라이프 블레이저',
+        color: '#1e293b',
+        swatch: '#0f172a',
+        keywords: ['DARK', 'MINIMAL', 'STRUCTURED'],
+        desc: '절제된 미니멀리즘과 샤프한 테일러링 라인. 불필요한 장식을 배제한 샤프한 가을 룩.',
+        recommendedItems: ['TYPE:16 OVERSIZED BLAZER', 'STRUCTURED CARGO PANTS', 'CYBER MATRIX GLASSES'],
+        mixMatch: ['ENFP', 'INTP', 'ENTJ']
+    },
+    INTP: {
+        code: 'INTP',
+        name: 'THE THINKER',
+        group: 'analysts',
+        mood: 'Tech Casual',
+        examples: '그래픽 티, 유틸리티 베스트, 커스텀 스니커즈',
+        color: '#475569',
+        swatch: '#334155',
+        keywords: ['TECH', 'UTILITY', 'GRAPHIC'],
+        desc: '편안한 오버핏 슬랙스와 스마트 캐주얼 믹스. 해커 무드의 그래픽 티셔츠.',
+        recommendedItems: ['CYBERNETIC GRAPHIC TEE', 'UTILITY VEST', 'LOOSE TECH SLACKS'],
+        mixMatch: ['ENFJ', 'ENTP', 'INTJ']
+    },
+    ENTJ: {
+        code: 'ENTJ',
+        name: 'THE COMMANDER',
+        group: 'analysts',
+        mood: 'Power Chic',
+        examples: '숄더 패드 재킷, 모노톤 셔츠, 가죽 부츠',
+        color: '#0f172a',
+        swatch: '#1e1b4b',
+        keywords: ['POWER', 'CHIC', 'MONOTONE'],
+        desc: '클래식 수트핏과 세련된 파워 드레싱. 압도적인 당당함을 선사하는 실루엣.',
+        recommendedItems: ['POWER SHOULDER JACKET', 'MONO LEATHER BOOTS', 'CHROME BELT'],
+        mixMatch: ['INFP', 'INTJ', 'ESTJ']
+    },
+    ENTP: {
+        code: 'ENTP',
+        name: 'THE VISIONARY',
+        group: 'analysts',
+        mood: 'Experimental',
+        examples: '비대칭 커팅, 네온 포인트, 아방가르드 룩',
+        color: '#7e22ce',
+        swatch: '#6b21a8',
+        keywords: ['EXPERIMENTAL', 'NEON', 'ASYMMETRIC'],
+        desc: '위트있는 스트리트 포인트와 볼드한 비대칭 액세서리로 유일무이한 카리스마.',
+        recommendedItems: ['ASYMMETRIC ZIP HOODIE', 'NEON MESH TOP', 'CHUNKY PLATFORM SHOES'],
+        mixMatch: ['INFJ', 'ENFP', 'INTP']
+    },
 
-    { code: 'INFJ', group: 'diplomats', title: '선의의 옹호자', desc: '서정적인 롱 드레이프 실루엣과 차분한 버건디', icon: 'fa-feather', tags: ['드레이프', '서정적', '빈티지'] },
-    { code: 'INFP', group: 'diplomats', title: '열정적인 중재자', desc: '따뜻한 감성의 크로셰, 소프트 톤 레이어드', icon: 'fa-wand-magic-sparkles', tags: ['크로셰', '파스텔', '레이어드'] },
-    { code: 'ENFJ', group: 'diplomats', title: '정의로운 사회운동가', desc: '우아한 트렌치코트와 호감도를 높이는 웜 톤', icon: 'fa-heart', tags: ['트렌치', '클래식', '크림'] },
-    { code: 'ENFP', group: 'diplomats', title: '재발랄한 활동가', desc: '톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드', icon: 'fa-sun', tags: ['비비드', '팝인', '패턴'] },
+    INFJ: {
+        code: 'INFJ',
+        name: 'THE ADVOCATE',
+        group: 'diplomats',
+        mood: 'Quiet Mood',
+        examples: '뉴트럴 드레이프, 롱 로브, 세이지 니트',
+        color: '#4c0519',
+        swatch: '#881337',
+        keywords: ['QUIET', 'NEUTRAL', 'DRAPED'],
+        desc: '서정적인 롱 드레이프 실루엣과 차분한 버건디 & 딥 플럼의 조화로운 감성.',
+        recommendedItems: ['DRAPED VELVET ROBE', 'NEUTRAL CASHMERE SWEATER', 'VINTAGE PEARL LOCKET'],
+        mixMatch: ['ENTP', 'INFP', 'ENFJ']
+    },
+    INFP: {
+        code: 'INFP',
+        name: 'THE DREAMER',
+        group: 'diplomats',
+        mood: 'Dreamy Vintage',
+        examples: '빈티지 크로셰, 포근한 니트, 파스텔 스커트',
+        color: '#065f46',
+        swatch: '#047857',
+        keywords: ['DREAMY', 'VINTAGE', 'SOFT_LAYER'],
+        desc: '따뜻한 감성의 크로셰, 소프트 톤 레이어드로 완성되는 로맨틱 아티스틱 무드.',
+        recommendedItems: ['CROC HET OVERSIZED CARDIGAN', 'PASTEL CHIFFON SKIRT', 'EARTHEN SUEDE SANDAL'],
+        mixMatch: ['ENTJ', 'ENFP', 'INFJ']
+    },
+    ENFJ: {
+        code: 'ENFJ',
+        name: 'THE PROTAGONIST',
+        group: 'diplomats',
+        mood: 'Warm Elegant',
+        examples: '부드러운 크림 트렌치, 실크 셔츠',
+        color: '#c2410c',
+        swatch: '#ea580c',
+        keywords: ['WARM', 'ELEGANT', 'TRENCH'],
+        desc: '우아한 트렌치코트와 호감도를 높이는 웜 톤의 따뜻하고 포근한 실루엣.',
+        recommendedItems: ['CREAM CLASSIC TRENCH', 'SILK TOUCH SHIRT', 'GOLDEN CHAIN BAG'],
+        mixMatch: ['INTP', 'ESFJ', 'ENFP']
+    },
+    ENFP: {
+        code: 'ENFP',
+        name: 'THE SPARK',
+        group: 'diplomats',
+        mood: 'Color Pop',
+        examples: '컬러풀 크롭티, 자유로운 팝 그래픽, Y2K 버클',
+        color: '#db2777',
+        swatch: '#be185d',
+        keywords: ['LOUD', 'COLORFUL', 'FREE'],
+        desc: '톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드로 자유로운 에너지를 표출.',
+        recommendedItems: ['Y2K PEACH POP BABY TEE', 'FLARE DENIM PANTS', 'SILVER CYBER BAG'],
+        mixMatch: ['INTJ', 'INFJ', 'ENTP']
+    },
 
-    { code: 'ISTJ', group: 'sentinels', title: '청렴결백한 논리주의자', desc: '정교한 핏의 셔츠와 정갈한 옥스포드 룩', icon: 'fa-square-check', tags: ['정갈함', '셔츠', '베이지'] },
-    { code: 'ISFJ', group: 'sentinels', title: '용감한 수호자', desc: '부드러운 캐시미어 니트와 포근한 파스텔 톤', icon: 'fa-shield-heart', tags: ['캐시미어', '포근함', '소프트'] },
-    { code: 'ESTJ', group: 'sentinels', title: '엄격한 관리자', desc: '단정한 체크 킷과 구조적인 숄더 브레이크', icon: 'fa-briefcase', tags: ['체크', '정장', '클린'] },
-    { code: 'ESFJ', group: 'sentinels', title: '사교적인 외교관', desc: '세련된 카디건과 러블리한 프렌치 로맨틱', icon: 'fa-users', tags: ['프렌치', '카디건', '모던'] },
+    ISTJ: {
+        code: 'ISTJ',
+        name: 'THE INSPECTOR',
+        group: 'sentinels',
+        mood: 'Essential',
+        examples: '기본템, 옥스포드 셔츠, 더블 롱코트',
+        color: '#1e3a8a',
+        swatch: '#1d4ed8',
+        keywords: ['ESSENTIAL', 'CLASSIC', 'CLEAN'],
+        desc: '정교한 핏의 셔츠와 정갈한 옥스포드 룩. 흐트러짐 없는 완벽한 클래식.',
+        recommendedItems: ['OXFORD WOOL TRENCH', 'POPLIN BUTTON SHIRT', 'DERBY LEATHER SHOES'],
+        mixMatch: ['ESFP', 'ESTJ', 'ISFJ']
+    },
+    ISFJ: {
+        code: 'ISFJ',
+        name: 'THE PROTECTOR',
+        group: 'sentinels',
+        mood: 'Soft Classic',
+        examples: '베이지 니트, 캐시미어 카디건, 베이지 스랙스',
+        color: '#78350f',
+        swatch: '#92400e',
+        keywords: ['SOFT', 'CLASSIC', 'COZY'],
+        desc: '부드러운 캐시미어 니트와 포근한 베이지 파스텔 톤의 아늑한 클래식.',
+        recommendedItems: ['BEIGE KNIT CARDIGAN', 'PLEATED SOFT SLACKS', 'COZY BEANIE'],
+        mixMatch: ['ESTP', 'ISTJ', 'ESFJ']
+    },
+    ESTJ: {
+        code: 'ESTJ',
+        name: 'THE EXECUTIVE',
+        group: 'sentinels',
+        mood: 'Smart Casual',
+        examples: '구조적 셔츠, 체크 재킷, 슬림 타이트 팬츠',
+        color: '#365314',
+        swatch: '#3f6212',
+        keywords: ['SMART', 'STRUCTURED', 'CHECK'],
+        desc: '단정한 체크 킷과 구조적인 숄더 라인의 전문적이고 깔끔한 비즈니스 캐주얼.',
+        recommendedItems: ['CHECKED TAILORED JACKET', 'SLIM CRISP SHIRT', 'CHROME WATCH'],
+        mixMatch: ['ISFP', 'ENTJ', 'ISTJ']
+    },
+    ESFJ: {
+        code: 'ESFJ',
+        name: 'THE PROVIDER',
+        group: 'sentinels',
+        mood: 'Lovely Casual',
+        examples: '밝은 파스텔 트위드, 캐주얼 프렌치 룩',
+        color: '#9d174d',
+        swatch: '#be123c',
+        keywords: ['LOVELY', 'CASUAL', 'FRENCH'],
+        desc: '세련된 카디건과 러블리한 프렌치 로맨틱 룩으로 친근한 매력을 더함.',
+        recommendedItems: ['PASTEL TWEED CARDIGAN', 'WHITE A-LINE SKIRT', 'FRENCH BERET'],
+        mixMatch: ['ISTP', 'ENFJ', 'ISFJ']
+    },
 
-    { code: 'ISTP', group: 'explorers', title: '만능 재주꾼', desc: '실용적인 워크웨어 및 유틸리티 자켓 실루엣', icon: 'fa-wrench', tags: ['워크웨어', '카고', '실용성'] },
-    { code: 'ISFP', group: 'explorers', title: '호기심 많은 예술가', desc: '자연스러운 빈티지 데님과 감각적인 텍스처', icon: 'fa-palette', tags: ['데님', '내추럴', '어스톤'] },
-    { code: 'ESTP', group: 'explorers', title: '모험을 즐기는 사업가', desc: '스포티 레더 자켓과 임팩트 있는 스니커즈', icon: 'fa-motorcycle', tags: ['레더', '스포티', '임팩트'] },
-    { code: 'ESFP', group: 'explorers', title: '자유로운 영혼의 연예인', desc: '화려한 글램 룩과 트렌디한 아일렛 키템', icon: 'fa-music', tags: ['글램', '트렌디', '파티'] }
-];
+    ISTP: {
+        code: 'ISTP',
+        name: 'THE MAKER',
+        group: 'explorers',
+        mood: 'Utility Street',
+        examples: '카고 팬츠, 테크웨어 베스트, 실용 유틸리티',
+        color: '#15803d',
+        swatch: '#166534',
+        keywords: ['UTILITY', 'CARGO', 'STREET'],
+        desc: '실용적인 워크웨어 및 유틸리티 카고 자켓 실루엣의 거친 스트리트 핏.',
+        recommendedItems: ['HEAVY DUTY CARGO PANTS', 'TACTICAL UTILITY JACKET', 'WORK BOOTS'],
+        mixMatch: ['ESFJ', 'ESTP', 'ISFP']
+    },
+    ISFP: {
+        code: 'ISFP',
+        name: 'THE ARTIST',
+        group: 'explorers',
+        mood: 'Art Casual',
+        examples: '어스톤 데님, 아트워크 후디, 내추럴 텍스처',
+        color: '#a16207',
+        swatch: '#854d0e',
+        keywords: ['ARTWORK', 'EARTHY', 'VINTAGE_DENIM'],
+        desc: '자연스러운 빈티지 데님과 감각적인 텍스처, 자유로운 아티스트의 영상.',
+        recommendedItems: ['VINTAGE WASHED DENIM JACKET', 'ARTWORK GRAPHIC HOODIE', 'CANVAS SNEAKERS'],
+        mixMatch: ['ESTJ', 'ISFP', 'ISTP']
+    },
+    ESTP: {
+        code: 'ESTP',
+        name: 'THE DYNAMO',
+        group: 'explorers',
+        mood: 'Bold Street',
+        examples: '오버핏 레더 자켓, 볼드 그래픽, 스포티 룩',
+        color: '#b91c1c',
+        swatch: '#991b1b',
+        keywords: ['BOLD', 'LEATHER', 'SPORTY'],
+        desc: '스포티 레더 자켓과 임팩트 있는 볼드 그래픽으로 주도하는 스트리트 에너지.',
+        recommendedItems: ['OVERSIZED LEATHER RACER JACKET', 'GRAPHIC STREET TEE', 'CHUNKY SNEAKERS'],
+        mixMatch: ['ISFJ', 'ESFP', 'ESTP']
+    },
+    ESFP: {
+        code: 'ESFP',
+        name: 'THE ENTERTAINER',
+        group: 'explorers',
+        mood: 'Trend Pop',
+        examples: 'Y2K 아일렛 크롭, 파티 액세서리, 글램 룩',
+        color: '#c026d3',
+        swatch: '#a21caf',
+        keywords: ['Y2K_POP', 'GLAM', 'PARTY'],
+        desc: '화려한 글램 룩과 트렌디한 아일렛 키템으로 무대의 주인공이 되는 인스타 룩.',
+        recommendedItems: ['Y2K GLAM HALTER CROP', 'EYELET BUCKLE DENIM', 'SPARKLE ACCESSORY SET'],
+        mixMatch: ['ISTJ', 'ESTP', 'ENFP']
+    }
+};
 
-// 2. Curated Lookbook Outfit Catalog Database
-const LOOKBOOK_DATABASE = [
+// 2. Products Database
+const PRODUCTS_CATALOG = [
     {
-        id: 'look-1',
-        mbti: 'INTJ',
-        mbtiGroup: 'analysts',
-        season: 'autumn',
-        title: 'Architectural Charcoal Tailoring',
-        desc: '각진 숄더 라인과 차콜 버진 울 블레이저가 완성하는 샤프하고 단정한 아키텍처 핏',
-        bannerGradient: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
-        colors: ['#0f172a', '#334155', '#94a3b8', '#cbd5e1'],
-        items: ['울 테일러드 블레이저', '핀스트라이프 슬랙스', '첼시 부츠', '메탈릭 프레임 글래스'],
-        tags: ['스마트', '미니멀', '테일러링']
+        id: 'prod-1',
+        name: 'TYPE:16 OVERSIZED BLAZER',
+        category: 'OUTER',
+        badge: 'BEST',
+        price: 129000,
+        img: 'assets/lookbook_darktech.jpg',
+        mbtiMatch: { INTJ: 98, ENTJ: 94, ISTP: 87, ESTJ: 82 },
+        whyMbti: 'Clean silhouette. No unnecessary details. Quiet but powerful.',
+        styleWith: ['STRUCTURED SLACKS', 'CYBER MATRIX GLASSES', 'DERBY LEATHER SHOES'],
+        moods: ['MINIMAL', 'TECH', 'STREET']
     },
     {
-        id: 'look-2',
-        mbti: 'INFP',
-        mbtiGroup: 'diplomats',
-        season: 'spring',
-        title: 'Soft Sage Layered Romance',
-        desc: '은은한 세이지 그린 톤의 크로셰 카디건과 시폰 스커트가 주는 몽환적 레트로 감성',
-        bannerGradient: 'linear-gradient(135deg, #065f46 0%, #047857 100%)',
-        colors: ['#065f46', '#34d399', '#fef3c7', '#d97706'],
-        items: ['크로셰 시스루 아우터', '시폰 롱 스커트', '어스톤 샌들', '빈티지 로켓 목걸이'],
-        tags: ['빈티지', '파스텔', '드림']
+        id: 'prod-2',
+        name: 'Y2K PEACH POP BABY TEE',
+        category: 'TOP',
+        badge: 'NEW',
+        price: 49000,
+        img: 'assets/lookbook_colorpop.jpg',
+        mbtiMatch: { ENFP: 99, ESFP: 95, ENTP: 91, INFP: 85 },
+        whyMbti: 'Vibrant pink accents. High energy expression. Pure Y2K freedom.',
+        styleWith: ['FLARE DENIM PANTS', 'SILVER CYBER BAG', 'CHUNKY PLATFORM SNEAKERS'],
+        moods: ['Y2K', 'ROMANTIC', 'SPORTY']
     },
     {
-        id: 'look-3',
-        mbti: 'ENTP',
-        mbtiGroup: 'analysts',
-        season: 'summer',
-        title: 'Neo Cyber Street Contrast',
-        desc: '네온 엑센트 메시 탑과 그래픽 커팅 버뮤다 팬츠의 조화로 완성하는 독창적인 위트',
-        bannerGradient: 'linear-gradient(135deg, #701a75 0%, #4c1d95 100%)',
-        colors: ['#4c1d95', '#ec4899', '#06b6d4', '#18181b'],
-        items: ['그래픽 딥 넥 탑', '버뮤다 유틸리티 팬츠', '플랫폼 청키 스니커즈'],
-        tags: ['스트리트', '네온', '볼드']
+        id: 'prod-3',
+        name: 'HEAVY DUTY UTILITY CARGO PANTS',
+        category: 'BOTTOM',
+        badge: 'BEST',
+        price: 89000,
+        img: 'assets/hero_campaign.jpg',
+        mbtiMatch: { ISTP: 97, INTP: 92, ESTP: 88, ISFP: 84 },
+        whyMbti: 'Tactical cargo pockets. Unrestricted mobility for urban explorers.',
+        styleWith: ['CYBERNETIC GRAPHIC TEE', 'UTILITY VEST', 'WORK BOOTS'],
+        moods: ['STREET', 'TECH', 'CASUAL']
     },
     {
-        id: 'look-4',
-        mbti: 'ISTJ',
-        mbtiGroup: 'sentinels',
-        season: 'winter',
-        title: 'Minimalist Oxford Wool Trench',
-        desc: '흐트러짐 없는 단정한 딥 옥스퍼드 블루 롱코트와 정교한 타탄 체크 머플러',
-        bannerGradient: 'linear-gradient(135deg, #1e3a8a 0%, #172554 100%)',
-        colors: ['#172554', '#3b82f6', '#e2e8f0', '#475569'],
-        items: ['더블 브레스티드 롱 코트', '옥스포드 셔츠', '더비 슈즈', '체크 숄'],
-        tags: ['클래식', '정갈함', '더블코트']
+        id: 'prod-4',
+        name: 'CROC HET DREAMER CARDIGAN',
+        category: 'TOP',
+        badge: 'NEW',
+        price: 79000,
+        img: 'assets/lookbook_colorpop.jpg',
+        mbtiMatch: { INFP: 98, INFJ: 93, ISFJ: 89, ENFP: 86 },
+        whyMbti: 'Soft texture layers. Warm retro nostalgia for poetic souls.',
+        styleWith: ['PASTEL CHIFFON SKIRT', 'SUEDE SANDALS'],
+        moods: ['VINTAGE', 'ROMANTIC', 'CASUAL']
     },
     {
-        id: 'look-5',
-        mbti: 'ISFP',
-        mbtiGroup: 'explorers',
-        season: 'autumn',
-        title: 'Earthy Vintage Indigo Denim',
-        desc: '자연스러운 워싱 워크웨어 자켓과 코듀로이 텍스처로 완성하는 감각적인 아티스틱 무드',
-        bannerGradient: 'linear-gradient(135deg, #78350f 0%, #451a03 100%)',
-        colors: ['#451a03', '#92400e', '#f59e0b', '#d97706'],
-        items: ['빈티지 데님 자켓', '코듀로이 와이드 팬츠', '스웨이드 몽크 슈즈'],
-        tags: ['어스톤', '데님', '아티스틱']
-    },
-    {
-        id: 'look-6',
-        mbti: 'ENFP',
-        mbtiGroup: 'diplomats',
-        season: 'spring',
-        title: 'Sunshine Peach Citrus Pop',
-        desc: '피치 블라썸과 브라이트 옐로우 포인트가 선사하는 생기발랄하고 통통 튀는 봄 오프숄더',
-        bannerGradient: 'linear-gradient(135deg, #c2410c 0%, #ea580c 100%)',
-        colors: ['#ea580c', '#fb923c', '#fef08a', '#ffffff'],
-        items: ['피치 컬러 오프숄더 니트', 'A라인 플리츠 스커트', '캔버스 스니커즈'],
-        tags: ['비비드', '팝인', '플리츠']
-    },
-    {
-        id: 'look-7',
-        mbti: 'ESFP',
-        mbtiGroup: 'explorers',
-        season: 'summer',
-        title: 'Sunset Glam Leather Accent',
-        desc: '시원한 크롭 크로셰 탑과 볼드한 버클 벨트 데님의 당당하고 시선집중되는 여름 파티 룩',
-        bannerGradient: 'linear-gradient(135deg, #9f1239 0%, #881337 100%)',
-        colors: ['#881337', '#e11d48', '#fda4af', '#000000'],
-        items: ['글램 크롭 홀터탑', '디스트로이드 진', '볼드 실버 체인 액세서리'],
-        tags: ['글램', '여름파티', '볼드액세서리']
-    },
-    {
-        id: 'look-8',
-        mbti: 'INFJ',
-        mbtiGroup: 'diplomats',
-        season: 'winter',
-        title: 'Deep Plum Velvet Drapery',
-        desc: '고혹적인 딥 플럼 컬러의 벨벳 맥시 로브 코트와 은은한 진주 펜던트 넥클리스',
-        bannerGradient: 'linear-gradient(135deg, #581c87 0%, #3b0764 100%)',
-        colors: ['#3b0764', '#7e22ce', '#c084fc', '#f3e8ff'],
-        items: ['벨벳 드레이프 롱 로브', '터틀넥 터치 드레스', '스웨이드 롱 부츠'],
-        tags: ['서정적', '벨벳', '고혹미']
+        id: 'prod-5',
+        name: 'CYBER MATRIX GLASSES',
+        category: 'ACC',
+        badge: 'BEST',
+        price: 35000,
+        img: 'assets/lookbook_darktech.jpg',
+        mbtiMatch: { ENTP: 96, INTJ: 95, ESTP: 91, INTP: 89 },
+        whyMbti: 'Futuristic shield frame. Instant cyberpunk statement.',
+        styleWith: ['POWER SHOULDER JACKET', 'CHUNKY SNEAKERS'],
+        moods: ['Y2K', 'TECH', 'STREET']
     }
 ];
 
-// App State Management
-let currentMbtiFilter = 'all';
-let currentSeasonFilter = 'spring';
-let activeMbtiCode = null;
-let savedLookbookIds = new Set(JSON.parse(localStorage.getItem('unusual_saved') || '[]'));
-let quizState = { step: 1, group: null, season: null, mood: null };
+// App State
+let currentQuizMbti = 'INFP';
+let quizTraits = [0, 0, 0, 0]; // [E/I, N/S, F/T, P/J]
+let cart = JSON.parse(localStorage.getItem('type16_cart') || '[]');
+let wishlist = JSON.parse(localStorage.getItem('type16_wish') || '[]');
 
-// DOM Content Loaded Handler
+// DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    initMbtiGrid();
-    initSeasonSelector();
-    initSearchAndControls();
-    renderLookbook();
-    updateSavedBadge();
-    initThemeToggle();
+    initGsapAnimations();
+    initTypesGrid();
+    initTypeMatchSelectors();
+    initLookbookTrack();
+    renderProducts(PRODUCTS_CATALOG);
+    renderCommunityFeed();
+    updateBadges();
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('theme-light');
+        });
+    }
 });
 
-// Render MBTI Selector Grid
-function initMbtiGrid() {
-    const container = document.getElementById('mbti-grid');
-    if (!container) return;
+// GSAP Animations Engine
+function initGsapAnimations() {
+    if (typeof gsap === 'undefined') return;
 
-    renderMbtiCards(MBTI_TYPES);
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Group Tab Click Handlers
-    document.querySelectorAll('.group-tab').forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            document.querySelectorAll('.group-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+    // Hero Text Entrance
+    gsap.from('.gsap-hero-text', {
+        duration: 1.2,
+        y: 60,
+        opacity: 0,
+        ease: 'power3.out'
+    });
 
-            const group = tab.dataset.group;
-            currentMbtiFilter = group;
-            
-            if (group === 'all') {
-                renderMbtiCards(MBTI_TYPES);
+    gsap.from('.gsap-hero-sub', {
+        duration: 1,
+        y: 40,
+        opacity: 0,
+        delay: 0.3,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.gsap-hero-cta', {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        delay: 0.5,
+        ease: 'power3.out'
+    });
+
+    // Floating Y2K Stickers Physics
+    gsap.to('.sticker-1', { y: '-=15', rotation: '-=4', duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.sticker-2', { y: '+=18', rotation: '+=5', duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.sticker-3', { y: '-=12', rotation: '-=3', duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+    // ScrollTrigger Reveals
+    gsap.utils.toArray('.section-title-wrap').forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 85%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+    });
+}
+
+// 02. Quiz Toggle Trait Handler
+function toggleQuizTrait(index) {
+    quizTraits[index] = quizTraits[index] === 0 ? 1 : 0;
+    
+    const handle = document.getElementById(`handle-${index}`);
+    if (handle) handle.classList.toggle('active', quizTraits[index] === 1);
+
+    // Calculate Result MBTI
+    const e_i = quizTraits[0] === 0 ? 'E' : 'I';
+    const n_s = quizTraits[1] === 0 ? 'N' : 'S';
+    const f_t = quizTraits[2] === 0 ? 'F' : 'T';
+    const p_j = quizTraits[3] === 0 ? 'P' : 'J';
+
+    currentQuizMbti = `${e_i}${n_s}${f_t}${p_j}`;
+    
+    const data = MBTI_MATRIX[currentQuizMbti];
+    if (!data) return;
+
+    document.getElementById('quiz-result-code').innerText = data.code;
+    document.getElementById('quiz-result-title').innerText = `${data.name} (${data.mood})`;
+    document.getElementById('quiz-result-desc').innerText = data.desc;
+    document.getElementById('quiz-explore-btn').innerText = `Explore ${data.code} Style Archive →`;
+}
+
+// 03. Render 16 Types Grid
+function initTypesGrid() {
+    const grid = document.getElementById('types-grid');
+    if (!grid) return;
+
+    renderTypeCards(Object.values(MBTI_MATRIX));
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const grp = btn.dataset.group;
+            if (grp === 'all') {
+                renderTypeCards(Object.values(MBTI_MATRIX));
             } else {
-                const filtered = MBTI_TYPES.filter(item => item.group === group);
-                renderMbtiCards(filtered);
+                const filtered = Object.values(MBTI_MATRIX).filter(m => m.group === grp);
+                renderTypeCards(filtered);
             }
         });
     });
 }
 
-function renderMbtiCards(types) {
-    const container = document.getElementById('mbti-grid');
-    container.innerHTML = types.map(mbti => `
-        <div class="mbti-card ${activeMbtiCode === mbti.code ? 'active' : ''}" onclick="selectMbtiType('${mbti.code}')">
-            <div class="mbti-header">
-                <span class="mbti-code">${mbti.code}</span>
-                <div class="mbti-icon"><i class="fa-solid ${mbti.icon}"></i></div>
+function renderTypeCards(types) {
+    const grid = document.getElementById('types-grid');
+    grid.innerHTML = types.map(type => `
+        <div class="type-card" onclick="openTypeArchive('${type.code}')">
+            <div class="type-header">
+                <span class="type-code">${type.code}</span>
+                <div class="type-swatch" style="background-color: ${type.swatch};" title="${type.mood}"></div>
             </div>
-            <div class="mbti-title">${mbti.title}</div>
-            <p class="mbti-desc">${mbti.desc}</p>
-            <div class="mbti-tags">
-                ${mbti.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+            <span class="type-mood-badge">${type.mood.toUpperCase()}</span>
+            <div class="type-keywords">
+                ${type.keywords.map(k => `#${k}`).join(' ')}
+            </div>
+            <div class="type-footer">
+                <span>${type.name}</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>
     `).join('');
 }
 
-// Select MBTI Type Handler
-function selectMbtiType(code) {
-    activeMbtiCode = activeMbtiCode === code ? null : code;
-    document.querySelectorAll('.mbti-card').forEach(card => {
-        card.classList.toggle('active', card.querySelector('.mbti-code').innerText === activeMbtiCode);
-    });
+// Open MBTI Style Archive Modal
+function openTypeArchive(code) {
+    const data = MBTI_MATRIX[code];
+    if (!data) return;
 
-    updateFilterTitle();
-    renderLookbook();
-}
-
-// Season Selector Logic
-function initSeasonSelector() {
-    document.querySelectorAll('.season-card').forEach(card => {
-        card.addEventListener('click', () => {
-            document.querySelectorAll('.season-card').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            currentSeasonFilter = card.dataset.season;
-            
-            updateFilterTitle();
-            renderLookbook();
-        });
-    });
-}
-
-// Update Header Titles
-function updateFilterTitle() {
-    const titleEl = document.getElementById('current-filter-title');
-    const descEl = document.getElementById('current-filter-desc');
+    document.getElementById('modal-mbti-code').innerText = `${data.code} — ${data.name} ARCHIVE`;
     
-    let mbtiText = activeMbtiCode ? `${activeMbtiCode}` : '전체 MBTI';
-    let seasonText = currentSeasonFilter.toUpperCase();
-    
-    if (titleEl) titleEl.innerText = `현재 큐레이션: ${mbtiText} x ${seasonText}`;
-    if (descEl) descEl.innerText = `${mbtiText} 성향을 위한 ${seasonText} 계절 특별 스타일링 컬렉션`;
-}
-
-// Render Lookbook Grid
-function renderLookbook(searchQuery = '') {
-    const container = document.getElementById('lookbook-grid');
-    if (!container) return;
-
-    let filtered = LOOKBOOK_DATABASE.filter(item => {
-        const matchesMbti = !activeMbtiCode || item.mbti === activeMbtiCode;
-        const matchesSeason = !currentSeasonFilter || item.season === currentSeasonFilter;
-        
-        const q = searchQuery.toLowerCase().trim();
-        const matchesSearch = !q || 
-            item.mbti.toLowerCase().includes(q) ||
-            item.title.toLowerCase().includes(q) ||
-            item.desc.toLowerCase().includes(q) ||
-            item.tags.some(t => t.toLowerCase().includes(q)) ||
-            item.items.some(i => i.toLowerCase().includes(q));
-
-        return matchesMbti && matchesSeason && matchesSearch;
-    });
-
-    if (filtered.length === 0) {
-        container.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px dashed var(--border-color);">
-                <i class="fa-solid fa-shirt" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
-                <h3>조건에 일치하는 룩북 아이템이 없습니다.</h3>
-                <p style="color: var(--text-secondary); margin-top: 0.5rem;">상단의 MBTI 필터나 검색어를 변경해 보세요.</p>
+    const body = document.getElementById('archive-modal-body');
+    body.innerHTML = `
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:center; margin-bottom:2rem;">
+            <div style="width:100px; height:100px; border-radius:50%; background:${data.swatch}; border:4px solid var(--y2k-pink); display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-size:1.8rem; font-weight:800;">
+                ${data.code}
             </div>
-        `;
+            <div>
+                <h3 style="font-family:var(--font-heading); font-size:1.8rem; color:var(--y2k-pink);">${data.mood}</h3>
+                <p style="color:var(--text-secondary); font-size:1.05rem;">${data.desc}</p>
+                <div style="margin-top:0.6rem; display:flex; gap:0.5rem;">
+                    ${data.keywords.map(k => `<span class="kw-tag">#${k}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.3); border:var(--border-dim); border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+            <h4 style="font-family:var(--font-y2k); color:var(--y2k-cyan); margin-bottom:0.8rem;">KEY STYLING ITEMS</h4>
+            <ul style="list-style:none; padding:0;">
+                ${data.recommendedItems.map(item => `<li style="padding:0.4rem 0; border-bottom:1px dashed rgba(255,255,255,0.1);"><i class="fa-solid fa-shirt" style="color:var(--y2k-pink); margin-right:8px;"></i>${item}</li>`).join('')}
+            </ul>
+        </div>
+
+        <div style="background:rgba(255,0,122,0.08); border:var(--border-y2k); border-radius:12px; padding:1.5rem;">
+            <h4 style="font-family:var(--font-y2k); color:var(--y2k-pink); margin-bottom:0.5rem;">RECOMMENDED MIX & MATCH PAIRS</h4>
+            <p style="font-size:0.95rem; color:var(--text-secondary);">${data.code}와 최고의 스타일 조화를 이루는 조합: <strong>${data.mixMatch.join(', ')}</strong></p>
+        </div>
+    `;
+
+    document.getElementById('archive-modal').classList.remove('hidden');
+}
+
+// 05. Type Match Logic
+function initTypeMatchSelectors() {
+    const sel1 = document.getElementById('match-type-1');
+    const sel2 = document.getElementById('match-type-2');
+    if (!sel1 || !sel2) return;
+
+    const codes = Object.keys(MBTI_MATRIX);
+    sel1.innerHTML = codes.map(c => `<option value="${c}">${c} (${MBTI_MATRIX[c].mood})</option>`).join('');
+    sel2.innerHTML = codes.map(c => `<option value="${c}">${c} (${MBTI_MATRIX[c].mood})</option>`).join('');
+
+    sel1.value = 'INTJ';
+    sel2.value = 'ENFP';
+    calculateTypeMatch();
+}
+
+function calculateTypeMatch() {
+    const code1 = document.getElementById('match-type-1').value;
+    const code2 = document.getElementById('match-type-2').value;
+    
+    const d1 = MBTI_MATRIX[code1];
+    const d2 = MBTI_MATRIX[code2];
+
+    const isDirectMatch = d1.mixMatch.includes(code2) || d2.mixMatch.includes(code1);
+    const score = isDirectMatch ? 98 : 88;
+
+    document.getElementById('match-score').innerText = `${score}%`;
+    document.getElementById('match-combo-title').innerText = `${code1} (${d1.mood}) × ${code2} (${d2.mood})`;
+    document.getElementById('match-combo-desc').innerText = `${d1.code}의 ${d1.examples}와 ${d2.code}의 ${d2.examples}가 만나 연출하는 환상의 Y2K 패션 시너지!`;
+}
+
+function shareMatchResult() {
+    alert('TYPE MATCH 결과가 클립보드에 복사되었습니다! SNS에 #TYPE16 태그와 함께 공유해보세요.');
+}
+
+function openShopWithMatch() {
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+}
+
+// 06. Shop by Mood
+function selectMoodFilter(mood) {
+    document.querySelectorAll('.mood-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.includes(mood));
+    });
+
+    if (mood === 'ALL') {
+        renderProducts(PRODUCTS_CATALOG);
+        document.getElementById('mapped-mbtis').innerText = 'ALL 16 MBTI TYPES';
         return;
     }
 
-    container.innerHTML = filtered.map(look => {
-        const isSaved = savedLookbookIds.has(look.id);
-        return `
-            <div class="look-card">
-                <div class="card-banner" style="background-image: ${look.bannerGradient};">
-                    <div class="card-banner-overlay"></div>
-                    <span class="card-mbti-badge">${look.mbti}</span>
-                    <span class="card-season-badge">${look.season.toUpperCase()}</span>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${look.title}</h3>
-                    <p class="card-desc">${look.desc}</p>
-                    
-                    <div class="color-palette-title">Color Palette</div>
-                    <div class="color-swatches">
-                        ${look.colors.map(c => `<div class="swatch" style="background-color: ${c};" title="${c}"></div>`).join('')}
-                    </div>
+    const filtered = PRODUCTS_CATALOG.filter(p => p.moods.includes(mood));
+    renderProducts(filtered);
 
-                    <div class="items-list">
-                        <div class="items-title">Key Items</div>
-                        ${look.items.map(item => `<span class="item-chip"><i class="fa-solid fa-check" style="font-size:0.65rem; margin-right:3px;"></i>${item}</span>`).join('')}
-                    </div>
+    const mappedMbtis = Object.values(MBTI_MATRIX)
+        .filter(m => m.keywords.some(k => k.includes(mood)))
+        .map(m => m.code);
 
-                    <div class="card-footer">
-                        <div class="mbti-tags">
-                            ${look.tags.map(t => `<span class="tag">#${t}</span>`).join('')}
-                        </div>
-                        <button class="bookmark-btn ${isSaved ? 'saved' : ''}" onclick="toggleBookmark('${look.id}')" title="캡슐 저장">
-                            <i class="${isSaved ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
-                        </button>
-                    </div>
+    document.getElementById('mapped-mbtis').innerText = mappedMbtis.length ? mappedMbtis.join(', ') : 'INTJ, ENFP, ISTP...';
+}
+
+// 07. Type Lookbook Track Renderer
+function initLookbookTrack() {
+    const track = document.getElementById('lookbook-track');
+    if (!track) return;
+
+    const items = [
+        { mbti: 'ENFP', title: 'COLOR POP Y2K STREET', img: 'assets/lookbook_colorpop.jpg', desc: '네온 핑크 크롭티 & 와이드 워크팬츠' },
+        { mbti: 'INTJ', title: 'DARK MINIMAL TECH', img: 'assets/lookbook_darktech.jpg', desc: '구조적 파워 블레이저 & 사이버 글래스' },
+        { mbti: 'ISTP', title: 'TACTICAL CARGO UTILITY', img: 'assets/hero_campaign.jpg', desc: '유틸리티 베스트 & 청키 바머' }
+    ];
+
+    track.innerHTML = items.map(look => `
+        <div class="lookbook-card">
+            <img src="${look.img}" class="lookbook-card-img" alt="${look.title}">
+            <div class="lookbook-overlay">
+                <span class="lookbook-mbti-tag">${look.mbti} OUTFIT</span>
+                <div class="lookbook-info">
+                    <h4>${look.title}</h4>
+                    <p>${look.desc}</p>
+                    <button class="btn btn-y2k-pink btn-full" onclick="openProductModal('prod-1')">
+                        SHOP THE LOOK <i class="fa-solid fa-bag-shopping"></i>
+                    </button>
                 </div>
             </div>
-        `;
-    }).join('');
+        </div>
+    `).join('');
 }
 
-// Search Box & Controls
-function initSearchAndControls() {
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            renderLookbook(e.target.value);
-        });
-    }
-}
+// 08. Render Products Catalog
+function filterShopCategory(cat) {
+    document.querySelectorAll('.shop-tab').forEach(t => {
+        t.classList.toggle('active', t.innerText === cat);
+    });
 
-// Bookmark & Saved Capsule Logic
-function toggleBookmark(lookId) {
-    if (savedLookbookIds.has(lookId)) {
-        savedLookbookIds.delete(lookId);
+    if (cat === 'ALL') {
+        renderProducts(PRODUCTS_CATALOG);
     } else {
-        savedLookbookIds.add(lookId);
-    }
-    localStorage.setItem('unusual_saved', JSON.stringify(Array.from(savedLookbookIds)));
-    updateSavedBadge();
-    renderLookbook();
-    renderCapsuleDrawer();
-}
-
-function updateSavedBadge() {
-    const badge = document.getElementById('saved-count');
-    if (badge) badge.innerText = savedLookbookIds.size;
-}
-
-// Capsule Drawer Handler
-const cartBtn = document.getElementById('cart-btn');
-if (cartBtn) {
-    cartBtn.addEventListener('click', toggleCapsuleDrawer);
-}
-
-function toggleCapsuleDrawer() {
-    const drawer = document.getElementById('capsule-drawer');
-    if (!drawer) return;
-    drawer.classList.toggle('hidden');
-    if (!drawer.classList.contains('hidden')) {
-        renderCapsuleDrawer();
+        const filtered = PRODUCTS_CATALOG.filter(p => p.category === cat || p.badge === cat);
+        renderProducts(filtered);
     }
 }
 
-function renderCapsuleDrawer() {
-    const container = document.getElementById('capsule-items');
-    if (!container) return;
+function filterShopByMbti(mbtiCode) {
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+    const filtered = PRODUCTS_CATALOG.filter(p => p.mbtiMatch[mbtiCode] && p.mbtiMatch[mbtiCode] > 80);
+    renderProducts(filtered);
+}
 
-    if (savedLookbookIds.size === 0) {
-        container.innerHTML = `
-            <div style="text-align:center; margin-top:4rem; color: var(--text-secondary);">
-                <i class="fa-solid fa-bookmark" style="font-size:2.5rem; margin-bottom:1rem; opacity:0.5;"></i>
-                <p>저장된 스타일링 코디가 없습니다.</p>
-            </div>
-        `;
-        return;
-    }
+function renderProducts(items) {
+    const grid = document.getElementById('product-grid');
+    if (!grid) return;
 
-    const savedItems = LOOKBOOK_DATABASE.filter(item => savedLookbookIds.has(item.id));
-    container.innerHTML = savedItems.map(item => `
-        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1rem; display:flex; gap:1rem; align-items:center;">
-            <div style="width:40px; height:40px; border-radius:var(--radius-sm); background:var(--accent-purple); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800;">
-                ${item.mbti}
+    grid.innerHTML = items.map(p => `
+        <div class="product-card">
+            <div class="product-thumb">
+                <img src="${p.img}" class="product-img" alt="${p.name}">
+                <span class="mbti-match-tag">INTJ 98% MATCH</span>
             </div>
-            <div style="flex-grow:1;">
-                <h4 style="font-size:0.95rem;">${item.title}</h4>
-                <span style="font-size:0.75rem; color:var(--text-secondary);">${item.season.toUpperCase()}</span>
+            <div class="product-details">
+                <h4 class="product-name">${p.name}</h4>
+                <div class="product-price">₩${p.price.toLocaleString()}</div>
+                <div class="product-actions">
+                    <button class="btn btn-y2k-pink btn-full" onclick="openProductModal('${p.id}')">
+                        VIEW MBTI SPEC <i class="fa-solid fa-sliders"></i>
+                    </button>
+                </div>
             </div>
-            <button class="bookmark-btn saved" onclick="toggleBookmark('${item.id}')">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
         </div>
     `).join('');
 }
 
-function clearCapsule() {
-    savedLookbookIds.clear();
-    localStorage.removeItem('unusual_saved');
-    updateSavedBadge();
-    renderLookbook();
-    renderCapsuleDrawer();
-}
-
-// AI Quiz Modal System
-function openQuizModal() {
-    const modal = document.getElementById('quiz-modal');
-    if (!modal) return;
-    quizState = { step: 1, group: null, season: null, mood: null };
-    showQuizStep(1);
-    modal.classList.remove('hidden');
-}
-
-function closeQuizModal() {
-    const modal = document.getElementById('quiz-modal');
-    if (modal) modal.classList.add('hidden');
-}
-
-function showQuizStep(step) {
-    document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
-    const current = document.getElementById(`quiz-step-${step}`);
-    if (current) current.classList.remove('hidden');
-}
-
-function selectQuizStep(step, val) {
-    if (step === 1) {
-        quizState.group = val;
-        showQuizStep(2);
-    } else if (step === 2) {
-        quizState.season = val;
-        showQuizStep(3);
-    }
-}
-
-function finishQuiz(moodVal) {
-    quizState.mood = moodVal;
-    showQuizStep('result');
-
-    const resultContainer = document.getElementById('result-card-container');
-    const matchedLook = LOOKBOOK_DATABASE.find(item => item.mbtiGroup === quizState.group || item.season === quizState.season) || LOOKBOOK_DATABASE[0];
-
-    resultContainer.innerHTML = `
-        <div class="look-card" style="margin-bottom:1.5rem;">
-            <div class="card-banner" style="background-image: ${matchedLook.bannerGradient};">
-                <div class="card-banner-overlay"></div>
-                <span class="card-mbti-badge">${matchedLook.mbti}</span>
-                <span class="card-season-badge">${matchedLook.season.toUpperCase()}</span>
+// Open Product Spec Detail Modal
+function openProductModal(prodId) {
+    const p = PRODUCTS_CATALOG.find(item => item.id === prodId) || PRODUCTS_CATALOG[0];
+    
+    document.getElementById('prod-modal-title').innerText = p.name;
+    const body = document.getElementById('product-modal-body');
+    
+    body.innerHTML = `
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:center;">
+            <div style="height:320px; border-radius:12px; overflow:hidden; border:var(--border-cyan);">
+                <img src="${p.img}" style="width:100%; height:100%; object-fit:cover;" alt="${p.name}">
             </div>
-            <div class="card-content">
-                <h3 class="card-title">${matchedLook.title}</h3>
-                <p class="card-desc">${matchedLook.desc}</p>
-                <div class="items-list">
-                    ${matchedLook.items.map(i => `<span class="item-chip">${i}</span>`).join('')}
+            <div>
+                <h3 style="font-family:var(--font-heading); font-size:1.6rem; margin-bottom:0.4rem;">${p.name}</h3>
+                <div style="font-family:var(--font-y2k); font-size:1.5rem; color:var(--y2k-pink); font-weight:800; margin-bottom:1.2rem;">₩${p.price.toLocaleString()}</div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <h4 style="font-family:var(--font-y2k); color:var(--y2k-cyan); font-size:0.85rem; margin-bottom:0.6rem;">TYPE MATCH ACCURACY</h4>
+                    ${Object.entries(p.mbtiMatch).map(([mbti, score]) => `
+                        <div style="margin-bottom:0.4rem;">
+                            <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-family:var(--font-y2k);">
+                                <span>${mbti}</span>
+                                <strong>${score}%</strong>
+                            </div>
+                            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;">
+                                <div style="width:${score}%; height:100%; background:var(--grad-pink-purple);"></div>
+                            </div>
+                        </div>
+                    `).join('')}
                 </div>
+
+                <div style="background:rgba(0,0,0,0.3); padding:1rem; border-radius:8px; border:var(--border-dim); margin-bottom:1.5rem;">
+                    <strong style="color:var(--y2k-yellow); font-family:var(--font-y2k); font-size:0.8rem;">WHY INTJ / TARGET TYPE?</strong>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.2rem;">${p.whyMbti}</p>
+                </div>
+
+                <button class="btn btn-y2k-pink btn-full" onclick="addToCart('${p.id}')">
+                    ADD TO BAG (₩${p.price.toLocaleString()}) <i class="fa-solid fa-bag-shopping"></i>
+                </button>
             </div>
         </div>
     `;
 
-    // Automatically apply filter
-    currentSeasonFilter = matchedLook.season;
-    activeMbtiCode = matchedLook.mbti;
-    renderLookbook();
+    document.getElementById('product-modal').classList.remove('hidden');
 }
 
-// Scroll Helper
-function scrollToSection(id) {
+// 09. Render Community Feed
+function renderCommunityFeed() {
+    const grid = document.getElementById('community-grid');
+    if (!grid) return;
+
+    const feeds = [
+        { user: '@cyber_infp', tag: '#INFP #TYPE16', img: 'assets/lookbook_colorpop.jpg' },
+        { user: '@matrix_intj', tag: '#INTJ #OOTD', img: 'assets/lookbook_darktech.jpg' },
+        { user: '@y2k_enfp', tag: '#ENFP #COLORPOP', img: 'assets/hero_campaign.jpg' }
+    ];
+
+    grid.innerHTML = feeds.map(f => `
+        <div class="comm-card">
+            <img src="${f.img}" class="comm-img" alt="${f.user}">
+            <div class="comm-body">
+                <div class="comm-user">${f.user}</div>
+                <div class="comm-tag">${f.tag}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function openUploadModal() {
+    alert('OOTD 이미지 선택창이 열렸습니다. 당신의 TYPE 착장을 업로드하세요!');
+}
+
+// Drawer & Cart Management
+function toggleDrawer(type = 'cart') {
+    const drawer = document.getElementById('side-drawer');
+    if (!drawer) return;
+
+    drawer.classList.toggle('hidden');
+    if (!drawer.classList.contains('hidden')) {
+        renderDrawerItems();
+    }
+}
+
+function addToCart(prodId) {
+    const item = PRODUCTS_CATALOG.find(p => p.id === prodId) || PRODUCTS_CATALOG[0];
+    cart.push(item);
+    localStorage.setItem('type16_cart', JSON.stringify(cart));
+    updateBadges();
+    closeModal('product-modal');
+    toggleDrawer('cart');
+}
+
+function renderDrawerItems() {
+    const container = document.getElementById('drawer-items');
+    if (!container) return;
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center; padding:4rem 1rem; color:var(--text-secondary);">
+                <i class="fa-solid fa-bag-shopping" style="font-size:3rem; margin-bottom:1rem; opacity:0.4;"></i>
+                <p>장바구니가 비어 있습니다.</p>
+            </div>
+        `;
+        document.getElementById('drawer-total-price').innerText = '₩0';
+        return;
+    }
+
+    let total = 0;
+    container.innerHTML = cart.map((item, idx) => {
+        total += item.price;
+        return `
+            <div style="display:flex; gap:1rem; align-items:center; background:var(--bg-card); border:var(--border-dim); padding:0.8rem; border-radius:8px; margin-bottom:0.8rem;">
+                <img src="${item.img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px;">
+                <div style="flex-grow:1;">
+                    <h5 style="font-size:0.9rem;">${item.name}</h5>
+                    <span style="font-family:var(--font-y2k); color:var(--y2k-pink); font-size:0.85rem;">₩${item.price.toLocaleString()}</span>
+                </div>
+                <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:var(--text-muted); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('drawer-total-price').innerText = `₩${total.toLocaleString()}`;
+}
+
+function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    localStorage.setItem('type16_cart', JSON.stringify(cart));
+    updateBadges();
+    renderDrawerItems();
+}
+
+function updateBadges() {
+    document.getElementById('cart-count').innerText = cart.length;
+}
+
+function closeModal(id) {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) el.classList.add('hidden');
 }
 
-// Theme Toggle
-function initThemeToggle() {
-    const btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-        document.body.classList.toggle('theme-light');
-        const isLight = document.body.classList.contains('theme-light');
-        btn.innerHTML = `<i class="fa-solid ${isLight ? 'fa-sun' : 'fa-moon'}"></i>`;
-    });
+function checkoutAlert() {
+    alert('TYPE:16 주문결제 페이지로 이동합니다.');
 }
