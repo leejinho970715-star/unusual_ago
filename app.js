@@ -340,8 +340,8 @@ const PRODUCTS_CATALOG = [
 ];
 
 // App State
-let currentQuizMbti = 'INFP';
-let quizTraits = [1, 0, 0, 0];
+let currentQuizMbti = 'INFJ';
+let quizTraits = [1, 0, 0, 1];
 function readSavedCart() {
     try {
         const saved = JSON.parse(localStorage.getItem('type16_cart') || '[]');
