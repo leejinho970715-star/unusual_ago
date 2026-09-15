@@ -384,6 +384,7 @@ function toggleQuizTrait(index) {
     document.getElementById('quiz-result-code').innerText = data.code;
     document.getElementById('quiz-result-title').innerText = `${data.name} (${data.mood})`;
     document.getElementById('quiz-result-img').src = data.fashionImg;
+    document.getElementById('quiz-result-img').alt = `${data.code} ${data.mood} 전신 화보`;
     document.getElementById('quiz-result-desc').innerText = data.desc;
     document.getElementById('quiz-explore-btn').innerText = `Explore ${data.code} Style Archive →`;
 }
