@@ -96,3 +96,47 @@
   object-position: center;
 }
 .quiz-result-paper .result-text { color: #d8dace; line-height: 1.7; }
+
+/* Modal frames follow the source image instead of cropping garments. */
+.modal-fashion-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 32px);
+  margin-bottom: 32px;
+}
+.modal-portrait-frame {
+  width: min(100%, 280px);
+  aspect-ratio: 2 / 3;
+  justify-self: center;
+  border: 1px solid #f5df3280;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1c1e19;
+}
+.modal-product-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #292824;
+  border: 1px solid #ffffff18;
+  margin-bottom: 12px;
+}
+.modal-portrait-frame img, .modal-product-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.archive-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+}
+.product-thumb img { object-fit: contain; }
+.product-card-adv:hover .product-thumb img { transform: none; }
+@media (max-width: 600px) {
+  .modal-fashion-layout { grid-template-columns: minmax(0, 1fr); }
+}

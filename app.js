@@ -16,9 +16,9 @@ const MBTI_MATRIX = {
         keywords: ['DARK', 'MINIMAL', 'STRUCTURED'],
         desc: '절제된 미니멀리즘과 샤프한 테일러링 라인. 불필요한 장식을 배제한 샤프한 가을 룩.',
         recommendedItems: [
-            { name: 'unusual ago OVERSIZED BLAZER', price: 129000, img: 'assets/lookbook_darktech.jpg' },
-            { name: 'STRUCTURED CARGO PANTS', price: 89000, img: 'assets/hero_campaign.jpg' },
-            { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/lookbook_darktech.jpg' }
+            { name: 'unusual ago OVERSIZED BLAZER', price: 129000, img: 'assets/products/blazer.jpg' },
+            { name: 'STRUCTURED CARGO PANTS', price: 89000, img: 'assets/products/structured-cargo.jpg' },
+            { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/products/glasses.jpg' }
         ],
         mixMatch: ['ENFP', 'INTP', 'ENTJ']
     },
@@ -34,8 +34,8 @@ const MBTI_MATRIX = {
         keywords: ['TECH', 'UTILITY', 'GRAPHIC'],
         desc: '편안한 오버핏 슬랙스와 스마트 캐주얼 믹스. 해커 무드의 그래픽 티셔츠.',
         recommendedItems: [
-            { name: 'CYBERNETIC GRAPHIC TEE', price: 49000, img: 'assets/hero_campaign.jpg' },
-            { name: 'UTILITY VEST', price: 79000, img: 'assets/mbti_analyst.jpg' }
+            { name: 'CYBERNETIC GRAPHIC TEE', price: 49000, img: 'assets/products/graphic-tee.jpg' },
+            { name: 'UTILITY VEST', price: 79000, img: 'assets/products/vest.jpg' }
         ],
         mixMatch: ['ENFJ', 'ENTP', 'INTJ']
     },
@@ -51,8 +51,8 @@ const MBTI_MATRIX = {
         keywords: ['POWER', 'CHIC', 'MONOTONE'],
         desc: '클래식 수트핏과 세련된 파워 드레싱. 압도적인 당당함을 선사하는 실루엣.',
         recommendedItems: [
-            { name: 'POWER SHOULDER JACKET', price: 139000, img: 'assets/mbti_analyst.jpg' },
-            { name: 'MONO LEATHER BOOTS', price: 159000, img: 'assets/lookbook_darktech.jpg' }
+            { name: 'POWER SHOULDER JACKET', price: 139000, img: 'assets/products/power-jacket.jpg' },
+            { name: 'MONO LEATHER BOOTS', price: 159000, img: 'assets/products/boots.jpg' }
         ],
         mixMatch: ['INFP', 'INTJ', 'ESTJ']
     },
@@ -68,8 +68,8 @@ const MBTI_MATRIX = {
         keywords: ['EXPERIMENTAL', 'NEON', 'ASYMMETRIC'],
         desc: '위트있는 스트리트 포인트와 볼드한 비대칭 액세서리로 유일무이한 카리스마.',
         recommendedItems: [
-            { name: 'ASYMMETRIC ZIP HOODIE', price: 89000, img: 'assets/editorial-orange.jpg' },
-            { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/lookbook_darktech.jpg' }
+            { name: 'ASYMMETRIC ZIP HOODIE', price: 89000, img: 'assets/products/zip-hoodie.jpg' },
+            { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/products/glasses.jpg' }
         ],
         mixMatch: ['INFJ', 'ENFP', 'INTP']
     },
@@ -86,8 +86,8 @@ const MBTI_MATRIX = {
         keywords: ['QUIET', 'NEUTRAL', 'DRAPED'],
         desc: '서정적인 롱 드레이프 실루엣과 차분한 버건디 & 딥 플럼의 조화로운 감성.',
         recommendedItems: [
-            { name: 'DRAPED VELVET ROBE', price: 119000, img: 'assets/editorial-soft.jpg' },
-            { name: 'NEUTRAL CASHMERE SWEATER', price: 99000, img: 'assets/editorial-soft.jpg' }
+            { name: 'DRAPED VELVET ROBE', price: 119000, img: 'assets/products/robe.jpg' },
+            { name: 'NEUTRAL CASHMERE SWEATER', price: 99000, img: 'assets/products/cashmere.jpg' }
         ],
         mixMatch: ['ENTP', 'INFP', 'ENFJ']
     },
@@ -103,8 +103,8 @@ const MBTI_MATRIX = {
         keywords: ['DREAMY', 'VINTAGE', 'SOFT_LAYER'],
         desc: '따뜻한 감성의 크로셰, 소프트 톤 레이어드로 완성되는 로맨틱 아티스틱 무드.',
         recommendedItems: [
-            { name: 'CROC HET DREAMER CARDIGAN', price: 79000, img: 'assets/editorial-soft.jpg' },
-            { name: 'PASTEL CHIFFON SKIRT', price: 59000, img: 'assets/editorial-soft.jpg' }
+            { name: 'CROCHET DREAMER CARDIGAN', price: 79000, img: 'assets/products/crochet.jpg' },
+            { name: 'PASTEL CHIFFON SKIRT', price: 59000, img: 'assets/products/skirt.jpg' }
         ],
         mixMatch: ['ENTJ', 'ENFP', 'INFJ']
     },
@@ -120,7 +120,7 @@ const MBTI_MATRIX = {
         keywords: ['WARM', 'ELEGANT', 'TRENCH'],
         desc: '우아한 트렌치코트와 호감도를 높이는 웜 톤의 따뜻하고 포근한 실루엣.',
         recommendedItems: [
-            { name: 'CREAM CLASSIC TRENCH', price: 149000, img: 'assets/editorial-soft.jpg' }
+            { name: 'CREAM CLASSIC TRENCH', price: 149000, img: 'assets/products/cream-trench.jpg' }
         ],
         mixMatch: ['INTP', 'ESFJ', 'ENFP']
     },
@@ -136,8 +136,8 @@ const MBTI_MATRIX = {
         keywords: ['LOUD', 'COLORFUL', 'FREE'],
         desc: '톡톡 튀는 비비드 컬러 매치와 팝 아티스틱 무드로 자유로운 에너지를 표출.',
         recommendedItems: [
-            { name: 'Y2K PEACH POP BABY TEE', price: 49000, img: 'assets/editorial-cobalt.jpg' },
-            { name: 'FLARE DENIM PANTS', price: 79000, img: 'assets/editorial-cobalt.jpg' }
+            { name: 'Y2K PEACH POP BABY TEE', price: 49000, img: 'assets/products/baby-tee.jpg' },
+            { name: 'FLARE DENIM PANTS', price: 79000, img: 'assets/products/flare-denim.jpg' }
         ],
         mixMatch: ['INTJ', 'INFJ', 'ENTP']
     },
@@ -154,8 +154,8 @@ const MBTI_MATRIX = {
         keywords: ['ESSENTIAL', 'CLASSIC', 'CLEAN'],
         desc: '정교한 핏의 셔츠와 정갈한 옥스포드 룩. 흐트러짐 없는 완벽한 클래식.',
         recommendedItems: [
-            { name: 'OXFORD WOOL TRENCH', price: 139000, img: 'assets/mbti_analyst.jpg' },
-            { name: 'POPLIN BUTTON SHIRT', price: 59000, img: 'assets/mbti_analyst.jpg' }
+            { name: 'OXFORD WOOL TRENCH', price: 139000, img: 'assets/products/wool-trench.jpg' },
+            { name: 'POPLIN BUTTON SHIRT', price: 59000, img: 'assets/products/shirt.jpg' }
         ],
         mixMatch: ['ESFP', 'ESTJ', 'ISFJ']
     },
@@ -171,7 +171,7 @@ const MBTI_MATRIX = {
         keywords: ['SOFT', 'CLASSIC', 'COZY'],
         desc: '부드러운 캐시미어 니트와 포근한 베이지 파스텔 톤의 아늑한 클래식.',
         recommendedItems: [
-            { name: 'BEIGE KNIT CARDIGAN', price: 69000, img: 'assets/editorial-soft.jpg' }
+            { name: 'BEIGE KNIT CARDIGAN', price: 69000, img: 'assets/products/beige-cardigan.jpg' }
         ],
         mixMatch: ['ESTP', 'ISTJ', 'ESFJ']
     },
@@ -187,7 +187,7 @@ const MBTI_MATRIX = {
         keywords: ['SMART', 'STRUCTURED', 'CHECK'],
         desc: '단정한 체크 킷과 구조적인 숄더 라인의 전문적이고 깔끔한 비즈니스 캐주얼.',
         recommendedItems: [
-            { name: 'CHECKED TAILORED JACKET', price: 129000, img: 'assets/mbti_analyst.jpg' }
+            { name: 'CHECKED TAILORED JACKET', price: 129000, img: 'assets/products/checked-jacket.jpg' }
         ],
         mixMatch: ['ISFP', 'ENTJ', 'ISTJ']
     },
@@ -203,7 +203,7 @@ const MBTI_MATRIX = {
         keywords: ['LOVELY', 'CASUAL', 'FRENCH'],
         desc: '세련된 카디건과 러블리한 프렌치 로맨틱 룩으로 친근한 매력을 더함.',
         recommendedItems: [
-            { name: 'PASTEL TWEED CARDIGAN', price: 89000, img: 'assets/editorial-soft.jpg' }
+            { name: 'PASTEL TWEED CARDIGAN', price: 89000, img: 'assets/products/tweed.jpg' }
         ],
         mixMatch: ['ISTP', 'ENFJ', 'ISFJ']
     },
@@ -220,8 +220,8 @@ const MBTI_MATRIX = {
         keywords: ['UTILITY', 'CARGO', 'STREET'],
         desc: '실용적인 워크웨어 및 유틸리티 카고 자켓 실루엣의 거친 스트리트 핏.',
         recommendedItems: [
-            { name: 'HEAVY DUTY CARGO PANTS', price: 89000, img: 'assets/editorial-orange.jpg' },
-            { name: 'TACTICAL UTILITY JACKET', price: 119000, img: 'assets/editorial-orange.jpg' }
+            { name: 'HEAVY DUTY CARGO PANTS', price: 89000, img: 'assets/products/cargo.jpg' },
+            { name: 'TACTICAL UTILITY JACKET', price: 119000, img: 'assets/products/tactical-jacket.jpg' }
         ],
         mixMatch: ['ESFJ', 'ESTP', 'ISFP']
     },
@@ -237,7 +237,7 @@ const MBTI_MATRIX = {
         keywords: ['ARTWORK', 'EARTHY', 'VINTAGE_DENIM'],
         desc: '자연스러운 빈티지 데님과 감각적인 텍스처, 자유로운 아티스트의 영상.',
         recommendedItems: [
-            { name: 'VINTAGE WASHED DENIM JACKET', price: 99000, img: 'assets/editorial-orange.jpg' }
+            { name: 'VINTAGE WASHED DENIM JACKET', price: 99000, img: 'assets/products/denim-jacket.jpg' }
         ],
         mixMatch: ['ESTJ', 'ISFP', 'ISTP']
     },
@@ -253,7 +253,7 @@ const MBTI_MATRIX = {
         keywords: ['BOLD', 'LEATHER', 'SPORTY'],
         desc: '스포티 레더 자켓과 임팩트 있는 볼드 그래픽으로 주도하는 스트리트 에너지.',
         recommendedItems: [
-            { name: 'OVERSIZED LEATHER RACER JACKET', price: 169000, img: 'assets/editorial-orange.jpg' }
+            { name: 'OVERSIZED LEATHER RACER JACKET', price: 169000, img: 'assets/products/racer-jacket.jpg' }
         ],
         mixMatch: ['ISFJ', 'ESFP', 'ESTP']
     },
@@ -269,7 +269,7 @@ const MBTI_MATRIX = {
         keywords: ['Y2K_POP', 'GLAM', 'PARTY'],
         desc: '화려한 글램 룩과 트렌디한 아일렛 키템으로 무대의 주인공이 되는 인스타 룩.',
         recommendedItems: [
-            { name: 'Y2K GLAM HALTER CROP', price: 45000, img: 'assets/editorial-cobalt.jpg' }
+            { name: 'Y2K GLAM HALTER CROP', price: 45000, img: 'assets/products/halter.jpg' }
         ],
         mixMatch: ['ISTJ', 'ESTP', 'ENFP']
     }
@@ -283,7 +283,7 @@ const PRODUCTS_CATALOG = [
         category: 'OUTER',
         badge: 'BEST',
         price: 129000,
-        img: 'assets/mbti_analyst.jpg',
+        img: 'assets/products/blazer.jpg',
         mbtiMatch: { INTJ: 98, ENTJ: 94, ISTP: 87, ESTJ: 82 },
         whyMbti: 'Clean silhouette. No unnecessary details. Quiet but powerful.',
         styleWith: ['STRUCTURED SLACKS', 'CYBER MATRIX GLASSES'],
@@ -295,7 +295,7 @@ const PRODUCTS_CATALOG = [
         category: 'TOP',
         badge: 'NEW',
         price: 49000,
-        img: 'assets/editorial-cobalt.jpg',
+        img: 'assets/products/baby-tee.jpg',
         mbtiMatch: { ENFP: 99, ESFP: 95, ENTP: 91, INFP: 85 },
         whyMbti: 'Vibrant pink accents. High energy expression. Pure Y2K freedom.',
         styleWith: ['FLARE DENIM PANTS', 'SILVER CYBER BAG'],
@@ -307,7 +307,7 @@ const PRODUCTS_CATALOG = [
         category: 'BOTTOM',
         badge: 'BEST',
         price: 89000,
-        img: 'assets/editorial-orange.jpg',
+        img: 'assets/products/cargo.jpg',
         mbtiMatch: { ISTP: 97, INTP: 92, ESTP: 88, ISFP: 84 },
         whyMbti: 'Tactical cargo pockets. Unrestricted mobility for urban explorers.',
         styleWith: ['CYBERNETIC GRAPHIC TEE', 'WORK BOOTS'],
@@ -315,11 +315,11 @@ const PRODUCTS_CATALOG = [
     },
     {
         id: 'prod-4',
-        name: 'CROC HET DREAMER CARDIGAN',
+        name: 'CROCHET DREAMER CARDIGAN',
         category: 'TOP',
         badge: 'NEW',
         price: 79000,
-        img: 'assets/editorial-soft.jpg',
+        img: 'assets/products/crochet.jpg',
         mbtiMatch: { INFP: 98, INFJ: 93, ISFJ: 89, ENFP: 86 },
         whyMbti: 'Soft texture layers. Warm retro nostalgia for poetic souls.',
         styleWith: ['PASTEL CHIFFON SKIRT'],
@@ -331,7 +331,7 @@ const PRODUCTS_CATALOG = [
         category: 'ACC',
         badge: 'BEST',
         price: 35000,
-        img: 'assets/lookbook_darktech.jpg',
+        img: 'assets/products/glasses.jpg',
         mbtiMatch: { ENTP: 96, INTJ: 95, ESTP: 91, INTP: 89 },
         whyMbti: 'Futuristic shield frame. Instant cyberpunk statement.',
         styleWith: ['POWER SHOULDER JACKET'],
@@ -439,9 +439,9 @@ function openTypeArchive(code) {
     
     const body = document.getElementById('archive-modal-body');
     body.innerHTML = `
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; margin-bottom:2rem; align-items:center;">
-            <div style="height:280px; border-radius:12px; overflow:hidden; border:2px solid var(--adv-orange);">
-                <img loading="lazy" decoding="async" src="${data.fashionImg}" style="width:100%; height:100%; object-fit:cover;" alt="${data.code} Fashion" class="archive-fashion-img">
+        <div class="modal-fashion-layout">
+            <div class="modal-portrait-frame">
+                <img loading="lazy" decoding="async" src="${data.fashionImg}" width="768" height="1152" alt="${data.code} ${data.mood} 전신 화보" class="archive-fashion-img">
             </div>
             <div>
                 <h3 style="font-family:var(--font-display); font-size:2.4rem; color:var(--adv-orange); line-height:1.1;">${data.mood}</h3>
@@ -454,10 +454,10 @@ function openTypeArchive(code) {
 
         <div style="background:rgba(0,0,0,0.4); border:var(--border-dim); border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
             <h4 style="font-family:var(--font-y2k); color:var(--adv-orange); margin-bottom:1rem;">RECOMMENDED PRODUCTS FOR ${data.code}</h4>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:1rem;">
+            <div class="archive-product-grid">
                 ${data.recommendedItems.map(item => `
                     <div style="background:var(--adv-dark-gray); border:1px solid var(--border-dim); border-radius:8px; padding:0.8rem; text-align:center;">
-                        <img loading="lazy" decoding="async" src="${item.img}" style="width:100%; height:120px; object-fit:cover; border-radius:6px; margin-bottom:0.5rem;">
+                        <div class="modal-product-frame"><img loading="lazy" decoding="async" src="${item.img}" width="768" height="768" alt="${item.name} 상품 이미지"></div>
                         <h5 style="font-size:0.85rem; margin-bottom:0.3rem;">${item.name}</h5>
                         <span style="font-family:var(--font-y2k); color:var(--adv-orange); font-size:0.85rem; font-weight:800;">₩${item.price.toLocaleString()}</span>
                     </div>
@@ -610,9 +610,9 @@ function openProductModal(prodId) {
     const body = document.getElementById('product-modal-body');
     
     body.innerHTML = `
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:center;">
-            <div style="height:340px; border-radius:12px; overflow:hidden; border:2px solid var(--adv-orange);">
-                <img loading="lazy" decoding="async" src="${p.img}" style="width:100%; height:100%; object-fit:cover;" alt="${p.name}">
+        <div class="modal-fashion-layout">
+            <div class="modal-product-frame">
+                <img loading="lazy" decoding="async" src="${p.img}" width="768" height="768" alt="${p.name}">
             </div>
             <div>
                 <h3 style="font-family:var(--font-display); font-size:2rem; margin-bottom:0.4rem;">${p.name}</h3>

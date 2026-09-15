@@ -22,6 +22,11 @@ const context = vm.createContext({ document:{addEventListener(){},getElementById
 vm.runInContext(app, context);
 assert.equal(vm.runInContext('cart.length', context), 0, 'Malformed storage must not stop the app');
 assert.equal(vm.runInContext('Object.keys(MBTI_MATRIX).length', context), 16);
+const recommendations = vm.runInContext('Object.values(MBTI_MATRIX).map(type => type.recommendedItems)', context);
+for (const items of recommendations) {
+  assert.equal(new Set(items.map(item => item.img)).size, items.length, 'Different recommended products need distinct images');
+  for (const item of items) assert(item.img.startsWith('assets/products/'), `Missing product photograph: ${item.name}`);
+}
 const results = new Set();
 for (let bits=0; bits<16; bits++) {
   const traits = [0,1,2,3].map(i=>(bits>>i)&1);
