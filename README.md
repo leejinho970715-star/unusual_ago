@@ -1,42 +1,61 @@
-# TYPE:16 — WEAR YOUR TYPE (2026 FALL — INSIDE MY TYPE)
+# TYPE:16 — INSIDE MY TYPE
 
-![TYPE:16 Y2K Fashion Studio](https://img.shields.io/badge/Y2K%20CYBER-FASHION%20STUDIO-ff007a?style=for-the-badge)
-![MBTI 16 Types](https://img.shields.io/badge/MBTI-16%20PERSONALITIES-8a2be2?style=for-the-badge)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Deployed-00f0ff?style=for-the-badge&logo=github)
+**2026 FALL · MBTI 시즌 테마 × Y2K 스트리트 패션 스튜디오**
 
-> **"성격을 입다. 16개의 Personality, 16개의 Style."**
+16가지 성향을 패션 큐레이션으로 해석한 정적 웹사이트입니다. 네온 핑크·시안, 크롬 로고, 필름 화보와 콜라주를 사용합니다.
 
-16가지 MBTI 성향을 패션 라이프스타일 큐레이션으로 재해석한 Y2K 스트리트 패션 브랜드 **TYPE:16**의 2026 FALL 공식 웹사이트입니다.
+- [웹사이트](https://leejinho970715-star.github.io/unusual_ago/)
+- [저장소](https://github.com/leejinho970715-star/unusual_ago)
 
----
+## 인터랙션
 
-## ⚡ 브랜드 콘셉트 (Brand Concept)
+[ADVILLAINS](https://www.advillains.com/)에서 확인한 고정 스크롤, 흩어진 타이포 조립, 무드보드 전환, 파일 스택 넘김을 TYPE:16 콘텐츠로 재구현했습니다. 원본 사이트의 브랜드·이미지·소스 코드를 사용하지 않습니다. 원본 전체의 픽셀 단위 복제는 아닙니다.
 
-- **SEASON**: `2026 FALL — INSIDE MY TYPE`
-- **SLOGAN**: TYPE:16 — WEAR YOUR TYPE
-- **DESIGN MOOD**: Y2K Pop Streetwear, Cyber Neon Pink/Cyan Aesthetics, Pixel & Retro Chrome Visuals, GSAP Smooth Animations.
+1. 스크롤하면 타이포가 정렬되고 화보 콜라주가 무드보드로 전환됩니다.
+2. 다음 장면에서는 5개의 성향 파일이 스크롤 방향에 맞춰 넘어갑니다. 위로 스크롤하면 역재생됩니다.
+3. 마우스 이동에 따라 화보가 미세하게 움직입니다. 터치 기기에서는 이 효과를 생략합니다.
+4. 룩북은 터치 스와이프, 마우스 드래그, 좌우 버튼, 키보드 방향키로 탐색합니다.
+5. 모바일 메뉴, 섹션 이동, MBTI 테스트, 16타입 필터, 타입 매칭, 상품 모달, 로컬 장바구니를 제공합니다.
 
----
+`position: sticky`와 `requestAnimationFrame`으로 스크롤 연출을 구현했습니다. 애니메이션용 외부 라이브러리는 필요하지 않습니다. Google Fonts와 Font Awesome은 CDN을 이용하며, 폰트 실패 시 시스템 폰트를 사용합니다.
 
-## 🌟 주요 기획 기능 (Features)
+## 실행 및 검사
 
-1. **01. HERO CAMPAIGN**: `2026 FALL COLLECTION — INSIDE MY TYPE` 와 풀스크린 Y2K 비주얼, 패러랙스 스티커 모션.
-2. **02. WHAT'S YOUR TYPE? (Interactive Quiz)**: 4가지 패션 스위치 (E/I, N/S, F/T, P/J) 실시간 조작을 통한 16 MBTI 스타일 직관 결과 매칭.
-3. **03. 16 TYPES COLLECTION**: 16개 MBTI 카드 그리드 (INTJ부터 ESFP까지), Hover 시 키워드 노출 (`DARK / MINIMAL / STRUCTURED`) 및 **Style Archive Modal** 상세 보기.
-4. **04. TYPE OF THE WEEK**: 매주 1개 MBTI 집중 조명 (ENFP — LOUD / COLORFUL / FREE) 및 3개 코디 룩북 & 카테고리 필터링.
-5. **05. TYPE MATCH**: `YOUR TYPE × THEIR TYPE` (예: INTJ × ENFP) 커플/프렌드 룩 패션 시너지 궁합 계산기 및 SNS 공유.
-6. **06. SHOP BY MOOD**: MINIMAL, STREET, ROMANTIC, VINTAGE, TECH, SPORTY, Y2K, CASUAL 무드 선택 시 연관 MBTI 및 상품 자동 필터링.
-7. **07. TYPE LOOKBOOK**: 인스타그램/릴스 감성의 세로형 카드 슬라이더 및 `SHOP THE LOOK` 장바구니 퀵 연동.
-8. **08. COMMUNITY (`HOW DO YOU WEAR YOUR TYPE?`)**: 착장 인스타그램 피드 UI, 해시태그 필터링 및 OOTD 사진 업로드 시뮬레이션.
-9. **09. MBTI PRODUCT SPEC MODAL**: 상품별 `TYPE MATCH` 적합도 % 바 (INTJ 98%, ENTJ 94%), `WHY INTJ?` 추천 이유, `STYLE WITH` 코디 조합.
+Node.js 18 이상에서 별도 패키지 설치 없이 실행합니다.
 
----
+```sh
+node scripts/serve.mjs
+# http://127.0.0.1:4186
 
-## 🌐 라이브 배포 (Live Deployment)
+node scripts/check.mjs
+```
 
-- **GitHub Repository**: [leejinho970715-star/unusual_ago](https://github.com/leejinho970715-star/unusual_ago)
-- **Live URL**: [https://leejinho970715-star.github.io/unusual_ago/](https://leejinho970715-star.github.io/unusual_ago/)
+검사 스크립트: JavaScript 구문, HTML ID 중복, 내부 앵커, 로컬 에셋 참조, 16가지 MBTI 결과, 손상된 로컬 저장 데이터 복구.
 
----
+## 반응형 및 접근성
 
-© 2026 TYPE:16 STUDIO. All rights reserved.
+- 320 / 375 / 768 / 1024 / 1440px에서 본문 가로 넘침 검사
+- 좁은 화면에서 카드·퀴즈·매칭 패널·모달을 단일 열로 전환
+- 모바일 상세 모달은 화면 높이 내에서 본문만 스크롤
+- 키보드 스위치, 아카이브 카드, 메뉴 및 모달 Escape 닫기
+- 모달 포커스 이동·순환·복귀, 숨겨진 모달의 탭 접근 방지
+- `prefers-reduced-motion`에서는 긴 스크롤 시퀀스를 생략하고 정적 캠페인과 콘텐츠 제공
+
+## 이미지
+
+내장 imagegen으로 새 화보 4장을 제작했습니다. 최적화한 JPEG 총 용량은 약 1.25 MB입니다. 생성 프롬프트와 파일 목록은 [이미지 제작 기록](docs/image-prompts.md)에 있습니다. 기존 화보도 일부 함께 사용합니다.
+
+## 구조
+
+- `index.html`: 시즌 캠페인과 MBTI 패션 콘텐츠
+- `app.js`: MBTI 데이터, 큐레이션, 상품과 장바구니
+- `style.css`: 기존 패션 UI 기본 스타일
+- `motion.css`, `motion.js`: 콜라주, 무드보드, 파일 스택, 갤러리 동작
+- `responsive.css`: Y2K 포인트 및 모바일·태블릿 레이아웃 보정
+- `assets/`: 로컬 화보 에셋
+
+## 배포 및 범위
+
+기존 GitHub Actions 워크플로는 `main` 푸시 시 GitHub Pages에 배포합니다.
+
+상품과 스타일 매칭은 콘셉트 데모입니다. 기존 결제·OOTD 업로드·SNS 공유 버튼에는 서버/실서비스 연동이 없으며, 매칭 점수는 의학적·심리학적 평가가 아닙니다. 실제 상거래 구축은 별도 작업입니다.

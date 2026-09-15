@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TYPE:16 × AD VILLAINS | INSIDE MY TYPE 2026 FALL</title>
-    <meta name="description" content="WEAR YOUR TYPE. AD VILLAINS 스트리트 엣지와 16 MBTI 퍼스널리티 패션 무드의 만남. TYPE:16 공식 컬렉션">
+    <title>TYPE:16 | INSIDE MY TYPE 2026 FALL</title>
+    <meta name="description" content="WEAR YOUR TYPE. 스트리트 엣지와 16 MBTI 퍼스널리티 패션 무드의 만남. TYPE:16 공식 컬렉션">
 
-    <!-- Google Fonts: AD VILLAINS Edgy & Bold Typography -->
+    <!-- TYPE:16 Y2K display typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
@@ -14,109 +14,73 @@
     <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="motion.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body class="theme-advillains">
 
-    <!-- AD VILLAINS Warning Ticker Banner -->
-    <div class="adv-ticker-wrap">
-        <div class="adv-ticker">
-            <div class="ticker-item">★ AD VILLAINS x TYPE:16 // WEAR YOUR TYPE ★ BE ORIGINAL ★ BREAKING THE MOLD ★ 2026 FALL INSIDE MY TYPE ★ FREE SHIPPING OVER ₩100,000 ★</div>
-            <div class="ticker-item">★ AD VILLAINS x TYPE:16 // WEAR YOUR TYPE ★ BE ORIGINAL ★ BREAKING THE MOLD ★ 2026 FALL INSIDE MY TYPE ★ FREE SHIPPING OVER ₩100,000 ★</div>
-        </div>
-    </div>
 
-    <!-- Navigation Header -->
-    <header class="adv-navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="adv-brand">
-                <span class="logo-adv">TYPE:<span class="orange">16</span></span>
-                <span class="logo-sub">× AD VILLAINS</span>
-            </a>
-
-            <nav class="adv-nav-menu">
-                <a href="#shop" class="nav-link">SHOP</a>
-                <a href="#types-collection" class="nav-link">16 TYPES</a>
-                <a href="#hero" class="nav-link">COLLECTION</a>
-                <a href="#type-test" class="nav-link badge-orange">TYPE TEST</a>
-                <a href="#lookbook" class="nav-link">LOOKBOOK</a>
-                <a href="#community" class="nav-link">COMMUNITY</a>
-            </nav>
-
-            <div class="adv-nav-actions">
-                <button class="adv-icon-btn" id="search-btn" title="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <button class="adv-icon-btn" id="wishlist-btn" title="Wishlist Capsule" onclick="toggleDrawer('wishlist')">
-                    <i class="fa-solid fa-heart"></i>
-                    <span id="wish-count" class="badge-count">0</span>
-                </button>
-                <button class="adv-icon-btn cart-btn" id="cart-btn" title="Cart" onclick="toggleDrawer('cart')">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="cart-count" class="badge-count">0</span>
-                </button>
-            </div>
-        </div>
+    <a class="skip-link" href="#type-test">콘텐츠로 건너뛰기</a>
+    <header class="studio-nav" id="navbar">
+        <a class="studio-logo" href="#hero" aria-label="TYPE:16 홈">TYPE:16<span>®</span></a>
+        <span class="nav-edition">Y2K PERSONALITY STUDIO.<br>2026 FALL — INSIDE MY TYPE.</span>
+        <nav aria-label="메인 메뉴">
+            <a href="#types-collection">16 TYPES ↗</a><a href="#lookbook">LOOKBOOK ↗</a>
+            <button id="cart-btn" onclick="toggleDrawer('cart')" aria-label="쇼핑백 열기">BAG <span id="cart-count">0</span></button>
+        </nav>
+        <button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">MENU +</button>
     </header>
-
-    <!-- Floating AD VILLAINS Contact / Wanted Badge -->
-    <div class="contact-floating" onclick="openTypeArchive('INTJ')">
-        <div class="badge-inner">
-            <i class="fa-solid fa-skull"></i>
-            <span>WANTED TYPE</span>
-        </div>
-    </div>
-
+    <nav id="mobile-menu" class="mobile-menu" aria-label="모바일 메뉴" hidden>
+        <a href="#type-test">FIND YOUR TYPE ↗</a><a href="#types-collection">16 TYPES ↗</a><a href="#lookbook">LOOKBOOK ↗</a><a href="#shop">SHOP ↗</a>
+    </nav>
+    <a class="contact-sticker" href="#type-test" aria-label="내 패션 타입 찾기"><span>↗</span>FIND<br>MY TYPE</a>
     <main>
-        <!-- 01. HERO SECTION (AD VILLAINS Urban Style) -->
-        <section id="hero" class="adv-hero-section">
-            <div class="hero-bg-media">
-                <img src="assets/hero_campaign.jpg" alt="AD VILLAINS x TYPE:16 Campaign" class="hero-bg-img">
-                <div class="hero-dark-overlay"></div>
-            </div>
-
-            <!-- Graffiti Sticker Overlays -->
-            <div class="adv-sticker sticker-graffiti-1">BE ORIGINAL</div>
-            <div class="adv-sticker sticker-graffiti-2">BREAKING THE MOLD</div>
-            <div class="adv-sticker sticker-graffiti-3">TYPE:16 ARCHIVE</div>
-
-            <div class="hero-content-wrap">
-                <span class="hero-tag-orange"><i class="fa-solid fa-bolt"></i> 2026 FALL — INSIDE MY TYPE</span>
-                <h1 class="hero-title-bold">
-                    WEAR YOUR <span class="gradient-orange">TYPE</span>
-                </h1>
-                <p class="hero-desc">
-                    16 PERSONALITIES, 16 DIFFERENT STREET STYLES.<br>
-                    AD VILLAINS 크리에이티브 감성과 MBTI 퍼스널리티 패션의 무제한 믹스매치.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#type-test" class="btn btn-adv-orange">
-                        FIND MY TYPE <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#types-collection" class="btn btn-adv-outline">
-                        EXPLORE 16 TYPES
-                    </a>
+        <section id="hero" class="scroll-story" aria-label="TYPE:16 가을 캠페인">
+            <div class="story-stage">
+                <div class="story-grain" aria-hidden="true"></div>
+                <div class="story-meta"><span>SEOUL, KR · MBTI FASHION STUDIO</span><span>2026 FALL — INSIDE MY TYPE</span></div>
+                <div class="collage-scene">
+                    <div class="board-paper" aria-hidden="true"></div>
+                    <div class="hero-heading">
+                        <span class="eyebrow">Y2K ATTITUDE. 16 PERSONALITIES. ZERO RULES.</span>
+                        <h1><span class="letter-line">WEAR YOUR</span><span class="letter-line outline-line">OWN TYPE.</span></h1>
+                        <p>평범함은 벗어두고, 가장 나다운 옷을 입어.</p>
+                        <a href="#types-collection" class="hero-discover">EXPLORE THE COLLECTION <span>↗</span></a>
+                    </div>
+                    <div class="moodboard-copy" aria-hidden="true"><span>A LITTLE DIFFERENT. A LOT MORE YOU.</span><h2>DON’T FIT IN.<br><em>STAND OUT.</em></h2><p>취향은 자유롭게. 스타일은 너답게.</p></div>
+                    <a class="collage-card card-one" href="#lookbook" aria-label="Cobalt Rebel 룩북 보기"><img src="assets/editorial-cobalt.jpg" width="1024" height="1536" alt="코발트 재킷과 실버 카고 팬츠 화보" fetchpriority="high"><span>01 / COBALT REBEL</span></a>
+                    <a class="collage-card card-two" href="#lookbook" aria-label="Soft Noise 룩북 보기"><img src="assets/editorial-soft.jpg" width="1024" height="1536" alt="핑크 니트와 버건디 팬츠 화보"><span>02 / SOFT NOISE</span></a>
+                    <a class="collage-card card-three" href="#lookbook" aria-label="Orange Frequency 룩북 보기"><img src="assets/editorial-orange.jpg" width="1024" height="1536" alt="퍼플 배경의 오렌지 봄버 재킷 화보"><span>03 / ORANGE FREQUENCY</span></a>
+                    <a class="collage-card card-four" href="#lookbook" aria-label="Seoul After Hours 캠페인 보기"><img src="assets/editorial-rooftop.jpg" width="1536" height="1024" alt="서울 옥상의 세 모델, 가을 컬렉션"><span>04 / SEOUL AFTER HOURS</span></a>
+                    <span class="scribble scribble-star" aria-hidden="true">✳</span><span class="scribble scribble-loop" aria-hidden="true">↝</span>
+                    <span class="paper-note" aria-hidden="true">made of<br><b>different.</b><span>↗</span></span>
+                    <span class="round-stamp" aria-hidden="true">NOT FOR<br>EVERYONE.<br><b>FOR YOU.</b></span>
                 </div>
-            </div>
-
-            <div class="scroll-down-indicator">
-                <span>SCROLL DOWN</span>
-                <i class="fa-solid fa-chevron-down"></i>
+                <div class="archive-scene" inert aria-hidden="true">
+                    <span class="archive-kicker">THE PERSONALITY FILES / FALL 2026</span>
+                    <span class="archive-count">01</span><span class="archive-total">/ 05</span>
+                    <div class="file-stack">
+                        <article class="archive-file"><span>FILE 01 — ENTP</span><img src="assets/editorial-cobalt.jpg" alt="코발트 컬러 스타일" width="1024" height="1536"><h2>COBALT REBEL</h2><p>EXPERIMENTAL / ELECTRIC / UNEXPECTED</p></article>
+                        <article class="archive-file"><span>FILE 02 — INFP</span><img src="assets/editorial-soft.jpg" alt="핑크 니트 스타일" width="1024" height="1536"><h2>SOFT NOISE</h2><p>DREAMY / TACTILE / UNFILTERED</p></article>
+                        <article class="archive-file"><span>FILE 03 — ESTP</span><img src="assets/editorial-orange.jpg" alt="오렌지 봄버 스타일" width="1024" height="1536"><h2>ORANGE FREQUENCY</h2><p>BOLD / UTILITY / IN MOTION</p></article>
+                        <article class="archive-file"><span>FILE 04 — INTJ</span><img src="assets/lookbook_darktech.jpg" alt="다크 테크웨어 스타일" width="1024" height="1536"><h2>AFTER DARK</h2><p>MINIMAL / STRUCTURED / PRECISE</p></article>
+                        <article class="archive-file"><span>FILE 05 — ENFP</span><img src="assets/editorial-rooftop.jpg" alt="서울 루프톱 컬렉션" width="1536" height="1024"><h2>BETTER TOGETHER</h2><p>DIFFERENT TYPES / SAME ENERGY</p></article>
+                        <div class="archive-pocket"><span>TYPE:16 ARCHIVE</span><b>PERSONALITY<br>IS EVERYTHING.</b><a href="#types-collection">OPEN THE COLLECTION ↗</a></div>
+                    </div>
+                </div>
+                <div class="story-bottom"><span class="story-chapter">01 — THE UNUSUAL</span><a href="#type-test">SCROLL TO DISCOVER <span>↓</span></a><span class="story-progress">00—100</span></div>
+                <div class="story-progress-track" aria-hidden="true"><span></span></div>
             </div>
         </section>
-
+        <div class="statement-marquee" aria-hidden="true"><div>BE YOUR OWN TYPE. ✳ BREAK THE PATTERN. ✳ BE YOUR OWN TYPE. ✳ BREAK THE PATTERN. ✳ </div></div>
         <!-- 02. WHAT'S YOUR TYPE? (Fashion Type Test) -->
         <section id="type-test" class="section-container">
             <div class="section-title-wrap text-center">
                 <span class="adv-tag">02. FASHION TYPE TEST</span>
                 <h2 class="adv-section-title">WHAT'S YOUR TYPE?</h2>
-                <p class="adv-section-desc">4가지 스위치로 완성되는 당신만의 AD VILLAINS 시그니처 핏 큐레이션</p>
+                <p class="adv-section-desc">4가지 스위치로 완성되는 당신만의 TYPE:16 시그니처 핏 큐레이션</p>
             </div>
 
             <div class="quiz-box-adv">
@@ -158,7 +122,7 @@
                     
                     <!-- Result Fashion Image -->
                     <div class="result-img-box">
-                        <img id="quiz-result-img" src="assets/mbti_diplomat.jpg" alt="MBTI Fashion Example" class="result-img">
+                        <img id="quiz-result-img" src="assets/editorial-soft.jpg" alt="INFP 핑크 니트 스타일 화보" class="result-img" loading="lazy">
                     </div>
 
                     <p id="quiz-result-desc" class="result-text">감성적인 크로셰 니트, 파스텔 레이어드와 로맨틱 빈티지 무드</p>
@@ -211,7 +175,7 @@
                     </button>
                 </div>
                 <div class="weekly-img-box">
-                    <img src="assets/lookbook_colorpop.jpg" alt="ENFP Outfit" class="weekly-img">
+                    <img src="assets/editorial-rooftop.jpg" alt="컬러풀한 서울 루프톱 컬렉션 화보" class="weekly-img" loading="lazy">
                 </div>
             </div>
         </section>
@@ -385,9 +349,9 @@
     <footer class="footer-adv">
         <div class="footer-container">
             <div class="footer-brand">
-                <span class="logo-adv">TYPE:<span class="orange">16</span> × AD VILLAINS</span>
+                <span class="logo-adv">TYPE:<span class="orange">16</span> </span>
                 <p class="footer-slogan">WEAR YOUR TYPE. BE ORIGINAL.</p>
-                <p class="footer-copy">© 2026 TYPE:16 STUDIO & AD VILLAINS. Deployed on GitHub Pages.</p>
+                <p class="footer-copy">© 2026 TYPE:16 STUDIO. Deployed on GitHub Pages.</p>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/leejinho970715-star/unusual_ago" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub Repository</a>
@@ -397,5 +361,6 @@
 
     <!-- App Logic -->
     <script src="app.js"></script>
+    <script src="motion.js"></script>
 </body>
 </html>
