@@ -1,0 +1,38 @@
+/* unsual age — warm yellow identity; MBTI and Y2K remain the season concept. */
+:root {
+  --acid: #f5df32;
+  --adv-orange: #f5df32;
+  --adv-orange-bright: #eacb19;
+  --cyber-pink: #f5df32;
+  --cyber-cyan: #f6e97a;
+  --shadow-orange: 4px 4px 0 #f5df32;
+  --glow-orange: 0 0 25px #f5df3240;
+}
+.studio-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 205px;
+  background: none;
+  filter: none;
+  transform: none;
+}
+.studio-logo img { display: block; width: 100%; height: auto; }
+.outline-line { -webkit-text-stroke-color: var(--acid); text-shadow: 4px 3px 0 #f5df3212; }
+.paper-note { background: #f5df32; }
+.round-stamp, .scribble, .eyebrow { color: var(--acid); }
+.round-stamp { border-color: var(--acid); }
+.archive-file:nth-child(2) { background: #e7d897; }
+.archive-file:nth-child(3) { background: #f4e8b0; }
+.archive-file:nth-child(4) { background: #cec5a5; }
+.archive-file:nth-child(5) { background: #efe6cb; }
+.result-mbti-code, .result-mbti-title { color: #6b5700; }
+.result-img-box { border-color: #9c8111; }
+.mood-mapped-mbti { background: #f5df3208; }
+.contact-sticker:after { background: linear-gradient(45deg,#baaa2b 48%,#fff5ad 50%); }
+.footer-adv { background: var(--ink); color: var(--paper); border-top: 1px solid #f5df3250; }
+.footer-logo { display: block; width: min(520px, 100%); height: auto; }
+.footer-adv .footer-slogan, .footer-adv a { color: var(--acid); }
+.footer-adv .footer-copy { color: #bcbcb2; }
+@media (max-width: 900px) { .studio-logo { width: 175px; } }
+@media (max-width: 600px) { .studio-logo { width: 145px; } }
+@media (max-width: 360px) { .studio-logo { width: 126px; } }

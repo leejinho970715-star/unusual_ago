@@ -1,5 +1,5 @@
 // ==========================================================================
-// TYPE:16 — Y2K streetwear & MBTI season curation
+// unsual age — Y2K streetwear & MBTI season curation
 // ==========================================================================
 
 // 1. Complete 16 MBTI Personalities Data Matrix with Fashion Example & Product Images
@@ -16,7 +16,7 @@ const MBTI_MATRIX = {
         keywords: ['DARK', 'MINIMAL', 'STRUCTURED'],
         desc: '절제된 미니멀리즘과 샤프한 테일러링 라인. 불필요한 장식을 배제한 샤프한 가을 룩.',
         recommendedItems: [
-            { name: 'TYPE:16 OVERSIZED BLAZER', price: 129000, img: 'assets/lookbook_darktech.jpg' },
+            { name: 'unsual age OVERSIZED BLAZER', price: 129000, img: 'assets/lookbook_darktech.jpg' },
             { name: 'STRUCTURED CARGO PANTS', price: 89000, img: 'assets/hero_campaign.jpg' },
             { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/lookbook_darktech.jpg' }
         ],
@@ -279,7 +279,7 @@ const MBTI_MATRIX = {
 const PRODUCTS_CATALOG = [
     {
         id: 'prod-1',
-        name: 'TYPE:16 OVERSIZED BLAZER',
+        name: 'unsual age OVERSIZED BLAZER',
         category: 'OUTER',
         badge: 'BEST',
         price: 129000,
@@ -501,7 +501,7 @@ function calculateTypeMatch() {
 
     document.getElementById('match-score').innerText = `${score}%`;
     document.getElementById('match-combo-title').innerText = `${code1} (${d1.mood}) × ${code2} (${d2.mood})`;
-    document.getElementById('match-combo-desc').innerText = `${d1.code}의 ${d1.examples}와 ${d2.code}의 ${d2.examples}가 만나 연출하는 TYPE:16 시너지 룩!`;
+    document.getElementById('match-combo-desc').innerText = `${d1.code}의 ${d1.examples}와 ${d2.code}의 ${d2.examples}가 만나 연출하는 unsual age 시너지 룩!`;
 }
 
 function shareMatchResult() { alert('TYPE MATCH 결과가 복사되었습니다! SNS 공유 가능합니다.'); }
@@ -649,7 +649,7 @@ function renderCommunityFeed() {
     if (!grid) return;
 
     const feeds = [
-        { user: '@cyber_infp', tag: '#INFP #TYPE16', img: 'assets/editorial-soft.jpg' },
+        { user: '@cyber_infp', tag: '#INFP #UNSUALAGE', img: 'assets/editorial-soft.jpg' },
         { user: '@matrix_intj', tag: '#INTJ #OOTD', img: 'assets/mbti_analyst.jpg' },
         { user: '@y2k_enfp', tag: '#ENFP #COLORPOP', img: 'assets/editorial-cobalt.jpg' },
         { user: '@street_istp', tag: '#ISTP #CARGO', img: 'assets/editorial-orange.jpg' }
