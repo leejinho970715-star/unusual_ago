@@ -1,4 +1,4 @@
-# unsual age — INSIDE MY TYPE
+# unusual ago — INSIDE MY TYPE
 
 **2026 FALL · MBTI 시즌 테마 × Y2K 스트리트 패션 스튜디오**
 
@@ -9,7 +9,7 @@
 
 ## 인터랙션
 
-[ADVILLAINS](https://www.advillains.com/)에서 확인한 고정 스크롤, 흩어진 타이포 조립, 무드보드 전환, 파일 스택 넘김을 unsual age 콘텐츠로 재구현했습니다. 원본 사이트의 브랜드·이미지·소스 코드를 사용하지 않습니다. 원본 전체의 픽셀 단위 복제는 아닙니다.
+[ADVILLAINS](https://www.advillains.com/)에서 확인한 고정 스크롤, 흩어진 타이포 조립, 무드보드 전환, 파일 스택 넘김을 unusual ago 콘텐츠로 재구현했습니다. 원본 사이트의 브랜드·이미지·소스 코드를 사용하지 않습니다. 원본 전체의 픽셀 단위 복제는 아닙니다.
 
 1. 스크롤하면 타이포가 정렬되고 화보 콜라주가 무드보드로 전환됩니다.
 2. 다음 장면에서는 5개의 성향 파일이 스크롤 방향에 맞춰 넘어갑니다. 위로 스크롤하면 역재생됩니다.
@@ -17,7 +17,7 @@
 4. 룩북은 터치 스와이프, 마우스 드래그, 좌우 버튼, 키보드 방향키로 탐색합니다.
 5. 모바일 메뉴, 섹션 이동, MBTI 테스트, 16타입 필터, 타입 매칭, 상품 모달, 로컬 장바구니를 제공합니다.
 
-`position: sticky`와 `requestAnimationFrame`으로 스크롤 연출을 구현했습니다. 애니메이션용 외부 라이브러리는 필요하지 않습니다. Google Fonts와 Font Awesome은 CDN을 이용하며, 폰트 실패 시 시스템 폰트를 사용합니다.
+`position: sticky`와 `requestAnimationFrame`으로 히어로를 구현했습니다. 나머지 8개 섹션은 로컬에 포함한 GSAP 3.13.0과 ScrollTrigger로 진입·진행선·이미지 스크롤 효과를 적용합니다. 필터 변경과 화면 크기 변경 시 애니메이션을 다시 연결합니다. Google Fonts와 Font Awesome은 CDN을 이용하며, 폰트 실패 시 시스템 폰트를 사용합니다.
 
 ## 실행 및 검사
 
@@ -43,7 +43,7 @@ node scripts/check.mjs
 
 ## 이미지
 
-내장 imagegen으로 새 화보 4장을 제작했습니다. 최적화한 JPEG 총 용량은 약 1.25 MB입니다. 생성 프롬프트와 파일 목록은 [이미지 제작 기록](docs/image-prompts.md)에 있습니다. 기존 화보도 일부 함께 사용합니다.
+내장 imagegen으로 새 화보 4장을 제작했습니다. 최적화한 JPEG 총 용량은 약 1.25 MB입니다. 생성 프롬프트와 파일 목록은 [이미지 제작 기록](docs/image-prompts.md)에 있습니다. 기존 화보도 일부 함께 사용합니다. 추가로 16개 MBTI별 전신 화보를 생성했습니다(768×1152, 총 약 1.53 MB). 컬렉션은 2:3 비율과 contain으로 전신을 보여줍니다. 최종 unusual ago 로고·OG 이미지와 16장 화보 프롬프트는 [추가 제작 기록](docs/2026-fall-portraits.md)에 있습니다.
 
 ## 구조
 
@@ -51,6 +51,8 @@ node scripts/check.mjs
 - `app.js`: MBTI 데이터, 큐레이션, 상품과 장바구니
 - `style.css`: 기존 패션 UI 기본 스타일
 - `motion.css`, `motion.js`: 콜라주, 무드보드, 파일 스택, 갤러리 동작
+- `section-motion.js`: GSAP 섹션 스크롤 효과와 필터 재연결
+- `brand.css`: 옐로우 브랜드와 전신 썸네일 비율
 - `responsive.css`: Y2K 포인트 및 모바일·태블릿 레이아웃 보정
 - `assets/`: 로컬 화보 에셋
 

@@ -87,10 +87,7 @@
   });
   stage.addEventListener('pointerleave', () => { pointerX = pointerY = 0; schedule(); });
   render();
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); observer.unobserve(entry.target); }
-  }), { threshold: .1 });
-  document.querySelectorAll('.section-title-wrap').forEach(el => { el.classList.add('reveal-ready'); observer.observe(el); });
+  // Section entrances are owned by section-motion.js (GSAP); content stays visible if unavailable.
 
   const menu = document.querySelector('#mobile-menu');
   const toggle = document.querySelector('.menu-toggle');

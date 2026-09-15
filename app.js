@@ -1,5 +1,5 @@
 // ==========================================================================
-// unsual age — Y2K streetwear & MBTI season curation
+// unusual ago — Y2K streetwear & MBTI season curation
 // ==========================================================================
 
 // 1. Complete 16 MBTI Personalities Data Matrix with Fashion Example & Product Images
@@ -10,13 +10,13 @@ const MBTI_MATRIX = {
         group: 'analysts',
         mood: 'Dark Minimal',
         examples: '블랙, 구조적 실루엣, 핀스트라이프 블레이저',
-        fashionImg: 'assets/mbti_analyst.jpg',
+        fashionImg: 'assets/types/intj.jpg',
         color: '#1e293b',
         swatch: '#0f172a',
         keywords: ['DARK', 'MINIMAL', 'STRUCTURED'],
         desc: '절제된 미니멀리즘과 샤프한 테일러링 라인. 불필요한 장식을 배제한 샤프한 가을 룩.',
         recommendedItems: [
-            { name: 'unsual age OVERSIZED BLAZER', price: 129000, img: 'assets/lookbook_darktech.jpg' },
+            { name: 'unusual ago OVERSIZED BLAZER', price: 129000, img: 'assets/lookbook_darktech.jpg' },
             { name: 'STRUCTURED CARGO PANTS', price: 89000, img: 'assets/hero_campaign.jpg' },
             { name: 'CYBER MATRIX GLASSES', price: 35000, img: 'assets/lookbook_darktech.jpg' }
         ],
@@ -28,7 +28,7 @@ const MBTI_MATRIX = {
         group: 'analysts',
         mood: 'Tech Casual',
         examples: '그래픽 티, 유틸리티 베스트, 커스텀 스니커즈',
-        fashionImg: 'assets/lookbook_darktech.jpg',
+        fashionImg: 'assets/types/intp.jpg',
         color: '#475569',
         swatch: '#334155',
         keywords: ['TECH', 'UTILITY', 'GRAPHIC'],
@@ -45,7 +45,7 @@ const MBTI_MATRIX = {
         group: 'analysts',
         mood: 'Power Chic',
         examples: '숄더 패드 재킷, 모노톤 셔츠, 가죽 부츠',
-        fashionImg: 'assets/mbti_analyst.jpg',
+        fashionImg: 'assets/types/entj.jpg',
         color: '#0f172a',
         swatch: '#1e1b4b',
         keywords: ['POWER', 'CHIC', 'MONOTONE'],
@@ -62,7 +62,7 @@ const MBTI_MATRIX = {
         group: 'analysts',
         mood: 'Experimental',
         examples: '비대칭 커팅, 네온 포인트, 아방가르드 룩',
-        fashionImg: 'assets/editorial-orange.jpg',
+        fashionImg: 'assets/types/entp.jpg',
         color: '#7e22ce',
         swatch: '#6b21a8',
         keywords: ['EXPERIMENTAL', 'NEON', 'ASYMMETRIC'],
@@ -80,7 +80,7 @@ const MBTI_MATRIX = {
         group: 'diplomats',
         mood: 'Quiet Mood',
         examples: '뉴트럴 드레이프, 롱 로브, 세이지 니트',
-        fashionImg: 'assets/editorial-soft.jpg',
+        fashionImg: 'assets/types/infj.jpg',
         color: '#4c0519',
         swatch: '#881337',
         keywords: ['QUIET', 'NEUTRAL', 'DRAPED'],
@@ -97,7 +97,7 @@ const MBTI_MATRIX = {
         group: 'diplomats',
         mood: 'Dreamy Vintage',
         examples: '빈티지 크로셰, 포근한 니트, 파스텔 스커트',
-        fashionImg: 'assets/editorial-soft.jpg',
+        fashionImg: 'assets/types/infp.jpg',
         color: '#065f46',
         swatch: '#047857',
         keywords: ['DREAMY', 'VINTAGE', 'SOFT_LAYER'],
@@ -114,7 +114,7 @@ const MBTI_MATRIX = {
         group: 'diplomats',
         mood: 'Warm Elegant',
         examples: '부드러운 크림 트렌치, 실크 셔츠',
-        fashionImg: 'assets/editorial-soft.jpg',
+        fashionImg: 'assets/types/enfj.jpg',
         color: '#c2410c',
         swatch: '#ea580c',
         keywords: ['WARM', 'ELEGANT', 'TRENCH'],
@@ -130,7 +130,7 @@ const MBTI_MATRIX = {
         group: 'diplomats',
         mood: 'Color Pop',
         examples: '컬러풀 크롭티, 자유로운 팝 그래픽, Y2K 버클',
-        fashionImg: 'assets/editorial-cobalt.jpg',
+        fashionImg: 'assets/types/enfp.jpg',
         color: '#db2777',
         swatch: '#be185d',
         keywords: ['LOUD', 'COLORFUL', 'FREE'],
@@ -148,7 +148,7 @@ const MBTI_MATRIX = {
         group: 'sentinels',
         mood: 'Essential',
         examples: '기본템, 옥스포드 셔츠, 더블 롱코트',
-        fashionImg: 'assets/mbti_analyst.jpg',
+        fashionImg: 'assets/types/istj.jpg',
         color: '#1e3a8a',
         swatch: '#1d4ed8',
         keywords: ['ESSENTIAL', 'CLASSIC', 'CLEAN'],
@@ -165,7 +165,7 @@ const MBTI_MATRIX = {
         group: 'sentinels',
         mood: 'Soft Classic',
         examples: '베이지 니트, 캐시미어 카디건, 베이지 스랙스',
-        fashionImg: 'assets/editorial-soft.jpg',
+        fashionImg: 'assets/types/isfj.jpg',
         color: '#78350f',
         swatch: '#92400e',
         keywords: ['SOFT', 'CLASSIC', 'COZY'],
@@ -181,7 +181,7 @@ const MBTI_MATRIX = {
         group: 'sentinels',
         mood: 'Smart Casual',
         examples: '구조적 셔츠, 체크 재킷, 슬림 타이트 팬츠',
-        fashionImg: 'assets/mbti_analyst.jpg',
+        fashionImg: 'assets/types/estj.jpg',
         color: '#365314',
         swatch: '#3f6212',
         keywords: ['SMART', 'STRUCTURED', 'CHECK'],
@@ -197,7 +197,7 @@ const MBTI_MATRIX = {
         group: 'sentinels',
         mood: 'Lovely Casual',
         examples: '밝은 파스텔 트위드, 캐주얼 프렌치 룩',
-        fashionImg: 'assets/editorial-soft.jpg',
+        fashionImg: 'assets/types/esfj.jpg',
         color: '#9d174d',
         swatch: '#be123c',
         keywords: ['LOVELY', 'CASUAL', 'FRENCH'],
@@ -214,7 +214,7 @@ const MBTI_MATRIX = {
         group: 'explorers',
         mood: 'Utility Street',
         examples: '카고 팬츠, 테크웨어 베스트, 실용 유틸리티',
-        fashionImg: 'assets/editorial-orange.jpg',
+        fashionImg: 'assets/types/istp.jpg',
         color: '#15803d',
         swatch: '#166534',
         keywords: ['UTILITY', 'CARGO', 'STREET'],
@@ -231,7 +231,7 @@ const MBTI_MATRIX = {
         group: 'explorers',
         mood: 'Art Casual',
         examples: '어스톤 데님, 아트워크 후디, 내추럴 텍스처',
-        fashionImg: 'assets/editorial-orange.jpg',
+        fashionImg: 'assets/types/isfp.jpg',
         color: '#a16207',
         swatch: '#854d0e',
         keywords: ['ARTWORK', 'EARTHY', 'VINTAGE_DENIM'],
@@ -247,7 +247,7 @@ const MBTI_MATRIX = {
         group: 'explorers',
         mood: 'Bold Street',
         examples: '오버핏 레더 자켓, 볼드 그래픽, 스포티 룩',
-        fashionImg: 'assets/editorial-orange.jpg',
+        fashionImg: 'assets/types/estp.jpg',
         color: '#b91c1c',
         swatch: '#991b1b',
         keywords: ['BOLD', 'LEATHER', 'SPORTY'],
@@ -263,7 +263,7 @@ const MBTI_MATRIX = {
         group: 'explorers',
         mood: 'Trend Pop',
         examples: 'Y2K 아일렛 크롭, 파티 액세서리, 글램 룩',
-        fashionImg: 'assets/editorial-cobalt.jpg',
+        fashionImg: 'assets/types/esfp.jpg',
         color: '#c026d3',
         swatch: '#a21caf',
         keywords: ['Y2K_POP', 'GLAM', 'PARTY'],
@@ -279,7 +279,7 @@ const MBTI_MATRIX = {
 const PRODUCTS_CATALOG = [
     {
         id: 'prod-1',
-        name: 'unsual age OVERSIZED BLAZER',
+        name: 'unusual ago OVERSIZED BLAZER',
         category: 'OUTER',
         badge: 'BEST',
         price: 129000,
@@ -415,10 +415,9 @@ function renderTypeCards(types) {
     const grid = document.getElementById('types-grid');
     grid.innerHTML = types.map(type => `
         <div class="type-card-adv" role="button" tabindex="0" aria-label="${type.code} 스타일 아카이브 열기" onclick="openTypeArchive('${type.code}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+            <div class="type-card-label"><span>${type.code}</span><span class="type-color-dot" style="background:${type.swatch}" aria-hidden="true"></span></div>
             <div class="type-card-media">
-                <img loading="lazy" decoding="async" src="${type.fashionImg}" alt="${type.code} Fashion Example" class="type-fashion-img">
-                <div class="type-code-overlay">${type.code}</div>
-                <div class="type-swatch-circle" style="background-color:${type.swatch}"></div>
+                <img loading="lazy" decoding="async" src="${type.fashionImg}" width="1024" height="1536" alt="${type.code} ${type.mood} — ${type.examples} 전신 화보" class="type-fashion-img">
             </div>
             <div class="type-card-info">
                 <div class="type-mood-title">${type.name} (${type.mood})</div>
@@ -441,7 +440,7 @@ function openTypeArchive(code) {
     body.innerHTML = `
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; margin-bottom:2rem; align-items:center;">
             <div style="height:280px; border-radius:12px; overflow:hidden; border:2px solid var(--adv-orange);">
-                <img loading="lazy" decoding="async" src="${data.fashionImg}" style="width:100%; height:100%; object-fit:cover;" alt="${data.code} Fashion">
+                <img loading="lazy" decoding="async" src="${data.fashionImg}" style="width:100%; height:100%; object-fit:cover;" alt="${data.code} Fashion" class="archive-fashion-img">
             </div>
             <div>
                 <h3 style="font-family:var(--font-display); font-size:2.4rem; color:var(--adv-orange); line-height:1.1;">${data.mood}</h3>
@@ -501,7 +500,7 @@ function calculateTypeMatch() {
 
     document.getElementById('match-score').innerText = `${score}%`;
     document.getElementById('match-combo-title').innerText = `${code1} (${d1.mood}) × ${code2} (${d2.mood})`;
-    document.getElementById('match-combo-desc').innerText = `${d1.code}의 ${d1.examples}와 ${d2.code}의 ${d2.examples}가 만나 연출하는 unsual age 시너지 룩!`;
+    document.getElementById('match-combo-desc').innerText = `${d1.code}의 ${d1.examples}와 ${d2.code}의 ${d2.examples}가 만나 연출하는 unusual ago 시너지 룩!`;
 }
 
 function shareMatchResult() { alert('TYPE MATCH 결과가 복사되었습니다! SNS 공유 가능합니다.'); }
@@ -649,7 +648,7 @@ function renderCommunityFeed() {
     if (!grid) return;
 
     const feeds = [
-        { user: '@cyber_infp', tag: '#INFP #UNSUALAGE', img: 'assets/editorial-soft.jpg' },
+        { user: '@cyber_infp', tag: '#INFP #UNUSUALAGO', img: 'assets/editorial-soft.jpg' },
         { user: '@matrix_intj', tag: '#INTJ #OOTD', img: 'assets/mbti_analyst.jpg' },
         { user: '@y2k_enfp', tag: '#ENFP #COLORPOP', img: 'assets/editorial-cobalt.jpg' },
         { user: '@street_istp', tag: '#ISTP #CARGO', img: 'assets/editorial-orange.jpg' }
